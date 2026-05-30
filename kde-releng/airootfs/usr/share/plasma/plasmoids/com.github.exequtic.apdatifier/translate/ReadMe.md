@@ -1,0 +1,38 @@
+> Version 7 of Zren's i18n scripts.
+
+## New Translations
+
+Fill out [`template.pot`](template.pot) with your translations then open a [new issue](https://github.com/exequtic/apdatifier/issues/new), name the file with the extension `.txt`, attach the txt file to the issue (drag and drop).
+
+Or if you know how to make a pull request:
+
+Copy the [`template.pot`](template.pot) file to [`./po`](po) directory and name it your locale's code (Eg: `en`/`de`/`fr`) with the extension `.po`. Then fill out all the `msgstr ""`.
+
+## Scripts
+
+* `sh ./merge` will parse the `i18n()` calls in the `*.qml` files and write it to the `template.pot` file. Then it will merge any changes into the `*.po` language files.
+* `sh ./build` will convert the `*.po` files to it's binary `*.mo` version and move it to `contents/locale/...`
+
+## Links
+
+* https://zren.github.io/kde/docs/widget/#translations-i18n
+* https://github.com/Zren/plasma-applet-lib/tree/master/package/translate
+
+## Status
+|  Locale  |  Lines  | % Done|
+|----------|---------|-------|
+| Template |     320 |       |
+| de       | 274/320 |   85% |
+| es       | 274/320 |   85% |
+| fr       | 308/320 |   96% |
+| hu_HU    | 313/320 |   97% |
+| ko       | 274/320 |   85% |
+| nl       | 274/320 |   85% |
+| pl       | 274/320 |   85% |
+| pt_BR    | 313/320 |   97% |
+| ru       | 320/320 |  100% |
+| tr       | 274/320 |   85% |
+| uk       | 274/320 |   85% |
+| zh_CN    | 308/320 |   96% |
+| zh_HK    | 308/320 |   96% |
+| zh_TW    | 308/320 |   96% |

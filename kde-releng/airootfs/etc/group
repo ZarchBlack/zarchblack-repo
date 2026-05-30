@@ -1,0 +1,8 @@
+root:x:0:root
+wheel:x:998:liveuser
+users:x:1000:liveuser
+video:x:986:liveuser
+audio:x:985:liveuser
+storage:x:984:liveuser
+autologin:x:1001:liveuser
+liveuser:x:1000:liveuser

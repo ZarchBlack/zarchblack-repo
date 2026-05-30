@@ -1,0 +1,24 @@
+logo_image = Image("logo.png");
+
+# Calculating dimensions
+screen_width = Window.GetWidth();
+
+screen_height = Window.GetHeight();
+
+# Adjusting the size: Always make the logo width 25% of the screen width (to maintain proportion)
+scale_factor = (screen_width * 0.25) / logo_image.GetWidth();
+
+scaled_logo_image = logo_image.Scale(logo_image.GetWidth() * scale_factor, logo_image.GetHeight() * scale_factor);
+
+
+
+logo_sprite = Sprite(scaled_logo_image);
+
+# Center the logo exactly on the screen
+logo_sprite.SetX(screen_width / 2 - scaled_logo_image.GetWidth() / 2);
+
+logo_sprite.SetY(screen_height / 2 - scaled_logo_image.GetHeight() / 2);
+
+# Display transparency
+logo_sprite.SetOpacity(1);
+

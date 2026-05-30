@@ -1,0 +1,29 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# Zarch-Hacking - BlackArch tools integration manager
+
+pkgname=zarch-hacking
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="ZarchBlack Hacking Tools Manager - BlackArch integration and security auditing tools"
+arch=('x86_64')
+url="https://github.com/ZarchBlack/zarchblack"
+license=('GPL3')
+depends=('blackarch' 'zarchguard')
+install=zarch-hacking.install
+source=()
+sha256sums=()
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/zarch-hacking"
+  mkdir -p "${pkgdir}/usr/bin"
+  
+  cat > "${pkgdir}/usr/bin/zarch-hacking" << 'BINEOF'
+#!/usr/bin/env bash
+echo "Zarch-Hacking Tools Manager"
+echo "Run: sudo pacman -S blackarch/<tool>"
+echo "Available categories: blackarch, blackarch-cracker, etc."
+BINEOF
+  chmod +x "${pkgdir}/usr/bin/zarch-hacking"
+  
+  echo "zarch-hacking ${pkgver}" > "${pkgdir}/usr/share/zarch-hacking/version"
+}

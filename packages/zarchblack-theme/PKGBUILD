@@ -1,0 +1,46 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# ZarchBlack Theme - Complete desktop theme package
+
+pkgname=zarchblack-theme
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="ZarchBlack complete desktop theme - Darkly, Layan, and Catppuccin integration"
+arch=('any')
+url="https://github.com/ZarchBlack/zarchblack"
+license=('GPL3')
+depends=(
+  'plasma-desktop' 'kwin' 'qt6-base' 'kvantum'
+  'darkly' 'layan' 'catppuccin-mocha-lavender'
+)
+optdepends=(
+  'zarchblack-wallpapers: ZarchBlack wallpaper collection'
+  'zarchblack-icons: ZarchBlack icon themes'
+  'zarchblack-sddm-theme: SDDM login theme'
+  'zarchblack-plymouth: Plymouth boot splash'
+)
+install=zarchblack-theme.install
+source=()
+sha256sums=()
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/doc/zarchblack-theme"
+  echo "ZarchBlack Theme Package ${pkgver}" > "${pkgdir}/usr/share/doc/zarchblack-theme/README"
+  
+  # Theme metadata
+  mkdir -p "${pkgdir}/usr/share/zarchblack"
+  cat > "${pkgdir}/usr/share/zarchblack/theme-info.json" << EOF
+{
+  "name": "ZarchBlack",
+  "version": "${pkgver}",
+  "description": "ZarchBlack Complete Desktop Theme",
+  "components": {
+    "plasma-theme": "Darkly",
+    "window-decorations": "Darkly",
+    "color-scheme": "CatppuccinMochaLavender",
+    "icons": "Magna-Dark-Icons",
+    "kvantum": "Layan",
+    "gtk-theme": "Layan-Dark"
+  }
+}
+EOF
+}

@@ -1,0 +1,4 @@
+post_install() {
+  echo "ZarchBlack Icons ${pkgver} installed"
+  echo "Apply via System Settings > Appearance > Icons"
+}

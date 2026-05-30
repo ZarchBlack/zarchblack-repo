@@ -1,0 +1,46 @@
+#
+# Product branding information
+#
+---
+componentName:  zarchblack
+
+welcomeStyleCalamares:   false
+
+welcomeExpandingLogo:   true
+
+windowExpanding:    normal
+
+windowSize: 800px,520px
+
+windowPlacement: center
+
+sidebar: widget
+
+navigation: widget
+
+strings:
+    productName:         "ZarchBlack"
+    shortProductName:    zarchblack
+    version:             "0.1.0"
+    shortVersion:        "0.1.0"
+    versionedName:       zarchblack
+    shortVersionedName:  zarchblack
+    bootloaderEntryName: zarchblack
+    productUrl:          https://github.com/zarchblack
+
+images:
+    productIcon:         "zarchblack-logo.png"
+    productLogo:         "logo.png"
+    productWallpaper:    "wallpaper.png"
+    productWelcome:      "languages.png"
+
+style:
+   SidebarBackground:        "#292F34"
+   SidebarText:              "#FFFFFF"
+   SidebarTextCurrent:       "#292F34"
+   SidebarBackgroundCurrent: "#D35400"
+
+slideshow:               "show.qml"
+
+slideshowAPI: 2
+

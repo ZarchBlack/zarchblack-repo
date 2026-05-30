@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -e
+
+# 1. Locales
+locale-gen
+
+# 2. Keyring
+pacman-key --init
+pacman-key --populate archlinux chaotic
+
+# 3. Create autologin group and liveuser
+groupadd -f autologin
+if ! id "liveuser" &>/dev/null; then
+    useradd -m -g users -G wheel,video,audio,storage,autologin -s /bin/zsh liveuser
+fi
+passwd -d liveuser
+
+# 4. Copy skel to liveuser
+cp -rT /etc/skel /home/liveuser/
+
+# 5. Standard Directories
+mkdir -p /home/liveuser/{Desktop,Documents,Downloads,Music,Pictures,Videos}
+
+# 6. Fix permissions
+chown -R liveuser:users /home/liveuser/
+
+# 7. sudoers for liveuser (livecd only - no password)
+echo "liveuser ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/liveuser
+chmod 440 /etc/sudoers.d/liveuser
+
+# 8. Fix GRUB menuentry name — show ZarchBlack only
+sed -i \
+  -e 's/OS="${GRUB_DISTRIBUTOR} Linux"/OS="${GRUB_DISTRIBUTOR}"/' \
+  -e 's|title="$(gettext_printf "%s, with Linux %s (booster initramfs)" "${os}" "${version}")"|title="$(gettext_printf "%s" "${os}")"|' \
+  -e 's|title="$(gettext_printf "%s, with Linux %s (fallback initramfs)" "${os}" "${version}")"|title="$(gettext_printf "%s (fallback)" "${os}")"|' \
+  -e 's|title="$(gettext_printf "%s, with Linux %s (recovery mode)" "${os}" "${version}")"|title="$(gettext_printf "%s (recovery)" "${os}")"|' \
+  -e 's|title="$(gettext_printf "%s, with Linux %s" "${os}" "${version}")"|title="$(gettext_printf "%s" "${os}")"|' \
+  /etc/grub.d/10_linux

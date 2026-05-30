@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Ensure Flatpak remote is configured
+if command -v flatpak &> /dev/null; then
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+fi
+
+# Synchronize pacman databases if missing
+if [ ! -d "/var/lib/pacman/sync" ] || [ -z "$(ls -A /var/lib/pacman/sync)" ]; then
+    pacman -Sy --noconfirm
+fi

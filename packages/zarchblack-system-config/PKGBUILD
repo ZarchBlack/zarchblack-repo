@@ -1,0 +1,19 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# ZarchBlack System Config - System-wide configuration defaults
+
+pkgname=zarchblack-system-config
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="ZarchBlack system configuration defaults - sysctl, limits, journald, network"
+arch=('any')
+url="https://github.com/ZarchBlack/zarchblack"
+license=('GPL3')
+depends=('zarchblack-branding' 'zarchblack-plasma-config')
+install=zarchblack-system-config.install
+source=()
+sha256sums=()
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/doc/zarchblack-system-config"
+  echo "ZarchBlack System Config ${pkgver}" > "${pkgdir}/usr/share/doc/zarchblack-system-config/README"
+}

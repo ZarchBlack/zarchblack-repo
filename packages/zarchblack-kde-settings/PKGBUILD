@@ -1,0 +1,19 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# ZarchBlack KDE Settings - KDE Plasma defaults package
+
+pkgname=zarchblack-kde-settings
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="ZarchBlack KDE Plasma settings defaults - keyboard, shortcuts, screen lock"
+arch=('any')
+url="https://github.com/ZarchBlack/zarchblack"
+license=('GPL3')
+depends=('zarchblack-plasma-config' 'zarchblack-theme')
+install=zarchblack-kde-settings.install
+source=()
+sha256sums=()
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/doc/zarchblack-kde-settings"
+  echo "ZarchBlack KDE Settings ${pkgver}" > "${pkgdir}/usr/share/doc/zarchblack-kde-settings/README"
+}

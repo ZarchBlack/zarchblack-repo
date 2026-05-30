@@ -1,0 +1,20 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# ZarchBlack Plymouth - Boot splash theme
+
+pkgname=zarchblack-plymouth
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="ZarchBlack Plymouth boot splash theme"
+arch=('any')
+url="https://github.com/ZarchBlack/zarchblack"
+license=('GPL3')
+depends=('plymouth')
+install=zarchblack-plymouth.install
+source=()
+sha256sums=()
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/plymouth/themes/zarchblack"
+  mkdir -p "${pkgdir}/usr/share/doc/zarchblack-plymouth"
+  echo "ZarchBlack Plymouth Theme ${pkgver}" > "${pkgdir}/usr/share/doc/zarchblack-plymouth/README"
+}

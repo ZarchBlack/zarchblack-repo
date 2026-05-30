@@ -1,0 +1,19 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# ZarchBlack Neofetch - System info display configuration
+
+pkgname=zarchblack-neofetch
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="ZarchBlack fastfetch/neofetch configuration with ZarchBlack branding"
+arch=('any')
+url="https://github.com/ZarchBlack/zarchblack"
+license=('GPL3')
+depends=('fastfetch')
+install=zarchblack-neofetch.install
+source=()
+sha256sums=()
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/doc/zarchblack-neofetch"
+  echo "ZarchBlack Neofetch Config ${pkgver}" > "${pkgdir}/usr/share/doc/zarchblack-neofetch/README"
+}

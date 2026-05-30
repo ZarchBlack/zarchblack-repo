@@ -1,0 +1,21 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# ZarchBlack Wallpapers - Official wallpaper collection
+
+pkgname=zarchblack-wallpapers
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="ZarchBlack official wallpaper collection - curated high-quality backgrounds"
+arch=('any')
+url="https://github.com/ZarchBlack/zarchblack"
+license=('GPL3')
+install=zarchblack-wallpapers.install
+source=()
+sha256sums=()
+
+package() {
+  # Wallpapers are installed via the ISO build process
+  # This package is a metapackage for dependency tracking
+  mkdir -p "${pkgdir}/usr/share/doc/zarchblack-wallpapers"
+  echo "ZarchBlack Wallpapers ${pkgver}" > "${pkgdir}/usr/share/doc/zarchblack-wallpapers/README"
+  echo "Collection: ZarchBlack brand wallpapers are included in the ISO at /usr/share/wallpapers/" >> "${pkgdir}/usr/share/doc/zarchblack-wallpapers/README"
+}

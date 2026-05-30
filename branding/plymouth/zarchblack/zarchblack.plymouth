@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=ZarchBlack
+Description=ZarchBlack Boot Theme
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/zarchblack
+ScriptFile=/usr/share/plymouth/themes/zarchblack/zarchblack.script

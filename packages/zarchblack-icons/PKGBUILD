@@ -1,0 +1,20 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# ZarchBlack Icons - Official icon theme collection
+
+pkgname=zarchblack-icons
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="ZarchBlack icon theme collection - Magna, Tela, Reversal, and custom themes"
+arch=('any')
+url="https://github.com/ZarchBlack/zarchblack"
+license=('GPL3')
+depends=('magna-dark-icons' 'tela-circle-icon-theme-purple')
+install=zarchblack-icons.install
+source=()
+sha256sums=()
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/doc/zarchblack-icons"
+  echo "ZarchBlack Icons ${pkgver}" > "${pkgdir}/usr/share/doc/zarchblack-icons/README"
+  echo "Includes: Magna-Dark-Icons, Tela-circle-dracula, Reversal-purple, Varied-kde-arch" >> "${pkgdir}/usr/share/doc/zarchblack-icons/README"
+}

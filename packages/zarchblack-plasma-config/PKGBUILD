@@ -1,0 +1,22 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# ZarchBlack Plasma Configuration - Default KDE Plasma settings
+
+pkgname=zarchblack-plasma-config
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="ZarchBlack KDE Plasma default configuration - desktop layout, panels, widgets"
+arch=('any')
+url="https://github.com/ZarchBlack/zarchblack"
+license=('GPL3')
+depends=('plasma-desktop' 'zarchblack-theme')
+install=zarchblack-plasma-config.install
+source=()
+sha256sums=()
+
+package() {
+  mkdir -p "${pkgdir}/etc/skel/.config"
+  mkdir -p "${pkgdir}/etc/skel/.local/share/kwin"
+  mkdir -p "${pkgdir}/usr/share/zarchblack/plasma"
+  
+  echo "ZarchBlack Plasma Config ${pkgver}" > "${pkgdir}/usr/share/zarchblack/plasma/version"
+}

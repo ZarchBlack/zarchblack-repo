@@ -1,0 +1,5 @@
+post_install() {
+  echo "ZarchBlack Theme ${pkgver} installed"
+  echo "Apply via System Settings > Appearance"
+  echo "Or: plasma-apply-colorscheme CatppuccinMochaLavender"
+}

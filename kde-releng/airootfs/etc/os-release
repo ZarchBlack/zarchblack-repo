@@ -1,0 +1,10 @@
+NAME="ZarchBlack"
+PRETTY_NAME="ZarchBlack"
+ID=zarchblack
+ID_LIKE=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+LOGO=ZarchBlack
+IMAGE_ID=ZarchBlack
+IMAGE_VERSION="$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y.%m)"
+LOGO=zarchblack

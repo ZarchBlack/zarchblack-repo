@@ -1,0 +1,20 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# ZarchBlack SDDM Theme - Login screen branding
+
+pkgname=zarchblack-sddm-theme
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="ZarchBlack SDDM login theme - ZeroDark SDDM theme"
+arch=('any')
+url="https://github.com/ZarchBlack/zarchblack"
+license=('GPL3')
+depends=('sddm')
+install=zarchblack-sddm-theme.install
+source=()
+sha256sums=()
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/sddm/themes/ZeroDark"
+  mkdir -p "${pkgdir}/usr/share/doc/zarchblack-sddm-theme"
+  echo "ZarchBlack SDDM Theme ${pkgver}" > "${pkgdir}/usr/share/doc/zarchblack-sddm-theme/README"
+}

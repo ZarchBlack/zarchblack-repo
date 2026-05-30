@@ -1,0 +1,39 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# ZarchBlack Branding - OS release, logos, and identity files
+
+pkgname=zarchblack-branding
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="ZarchBlack OS branding - os-release, logos, splash screen, distro identity"
+arch=('any')
+url="https://github.com/ZarchBlack/zarchblack"
+license=('GPL3')
+install=zarchblack-branding.install
+source=()
+sha256sums=()
+
+package() {
+  mkdir -p "${pkgdir}/etc"
+  mkdir -p "${pkgdir}/usr/share/zarchblack"
+  mkdir -p "${pkgdir}/usr/share/pixmaps"
+  
+  # OS Release
+  cat > "${pkgdir}/etc/os-release" << 'OSEOF'
+NAME="ZarchBlack"
+PRETTY_NAME="ZarchBlack"
+ID=zarchblack
+ID_LIKE=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+LOGO=zarchblack
+HOME_URL="https://github.com/ZarchBlack"
+SUPPORT_URL="https://github.com/ZarchBlack/zarchblack/issues"
+BUG_REPORT_URL="https://github.com/ZarchBlack/zarchblack/issues"
+OSEOF
+  
+  cat > "${pkgdir}/etc/zarchblack-release" << 'ZEOF'
+ZarchBlack rolling
+ZEOF
+  
+  echo "ZarchBlack Branding ${pkgver}" > "${pkgdir}/usr/share/zarchblack/branding-version"
+}

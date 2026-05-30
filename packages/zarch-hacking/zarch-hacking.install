@@ -1,0 +1,5 @@
+post_install() {
+  echo "Zarch-Hacking ${pkgver} installed"
+  echo "Use 'zarch-hacking' to explore available tools"
+  echo "Ensure blackarch repo is enabled in /etc/pacman.conf"
+}

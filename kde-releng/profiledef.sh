@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2034
+
+iso_name="ZarchBlack"
+iso_label="ZARCHBLACK_$(date +%Y%m)"
+iso_publisher="ZarchBlack <https://github.com/ZarchBlack>"
+iso_application="ZarchBlack KDE Live Medium"
+iso_version="$(date +%Y.%m.%d)"
+install_dir="zarchblack"
+buildmodes=('iso')
+bootmodes=('bios.syslinux.mbr' 'bios.syslinux.eltorito' 'uefi-ia32.grub.esp' 'uefi-x64.grub.esp' 'uefi-x64.grub.eltorito')
+arch="x86_64"
+pacman_conf="pacman.conf"
+airootfs_image_type="squashfs"
+bootstrap_tarball_compression=(zstd)
+file_permissions=(
+  ["/etc/shadow"]="0:0:400"
+  ["/etc/gshadow"]="0:0:400"
+  ["/etc/sudoers"]="0:0:440"
+  ["/root"]="0:0:750"
+  ["/root/.automated_script.sh"]="0:0:755"
+  ["/etc/polkit-1/rules.d"]="0:0:750"
+  ["/usr/local/bin/Installation_guide"]="0:0:755"
+  ["/usr/local/bin/livecd-sound"]="0:0:755"
+  ["/usr/local/bin/fix-btrfs-boot.sh"]="0:0:755"
+  ["/root/customize_airootfs.sh"]="0:0:755"
+  ["/etc/sddm.conf.d/autologin.conf"]="0:0:644"
+  ["/usr/share/plasma/plasmoids/com.github.exequtic.apdatifier/contents/tools/sh/init"]="0:0:755"
+  ["/usr/share/plasma/plasmoids/com.github.exequtic.apdatifier/contents/tools/sh/management"]="0:0:755"
+  ["/usr/share/plasma/plasmoids/com.github.exequtic.apdatifier/contents/tools/sh/messages"]="0:0:755"
+  ["/usr/share/plasma/plasmoids/com.github.exequtic.apdatifier/contents/tools/sh/mirrorlist"]="0:0:755"
+  ["/usr/share/plasma/plasmoids/com.github.exequtic.apdatifier/contents/tools/sh/terminal"]="0:0:755"
+  ["/usr/share/plasma/plasmoids/com.github.exequtic.apdatifier/contents/tools/sh/upgrade"]="0:0:755"
+  ["/usr/share/plasma/plasmoids/com.github.exequtic.apdatifier/contents/tools/sh/utils"]="0:0:755"
+  ["/usr/share/plasma/plasmoids/com.github.exequtic.apdatifier/contents/tools/sh/vars"]="0:0:755"
+  ["/usr/share/plasma/plasmoids/com.github.exequtic.apdatifier/contents/tools/sh/widgets"]="0:0:755"
+  ["/usr/share/plasma/plasmoids/com.github.exequtic.apdatifier/contents/tools/sh/widgets-id"]="0:0:755"
+)
+airootfs_image_tool_options=('-comp' 'xz' '-Xbcj' 'x86' '-b' '1M' '-Xdict-size' '1M')

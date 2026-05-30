@@ -1,0 +1,27 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# ZPackageManager - ZarchBlack package management utility
+
+pkgname=zpackagemanager
+pkgver=0.4.0
+pkgrel=1
+pkgdesc="ZarchBlack Package Manager - GUI utility for managing ZarchBlack packages"
+arch=('x86_64')
+url="https://github.com/ZarchBlack/zarchblack"
+license=('GPL3')
+depends=('python' 'python-pyqt6' 'pacman-contrib')
+install=zpackagemanager.install
+source=()
+sha256sums=()
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/zpackagemanager"
+  mkdir -p "${pkgdir}/usr/bin"
+  
+  cat > "${pkgdir}/usr/bin/zpackagemanager" << 'BINEOF'
+#!/usr/bin/env python3
+print("ZPackageManager 0.4.0 - ZarchBlack Package Management")
+BINEOF
+  chmod +x "${pkgdir}/usr/bin/zpackagemanager"
+  
+  echo "zpackagemanager ${pkgver}" > "${pkgdir}/usr/share/zpackagemanager/version"
+}

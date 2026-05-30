@@ -1,0 +1,4 @@
+post_install() {
+  echo "ZarchBlack SDDM Theme ${pkgver} installed"
+  echo "Activate: Set Current=ZeroDark in /etc/sddm.conf.d/kde_settings.conf"
+}

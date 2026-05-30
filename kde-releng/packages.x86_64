@@ -1,0 +1,974 @@
+# ===================================================================
+#                           ZarchBlack
+#         KDE Plasma Edition - x86_64 Package Manifest
+# ===================================================================
+#
+# Distribution: ZarchBlack
+# Edition:      KDE Plasma (Wayland/X11)
+# Architecture: x86_64
+# ISO Profile:  archiso-based live environment
+# Description:  Complete package list for ZarchBlack ISO and installed system.
+#               Organized for clarity, consistency, and maintainability.
+#
+# Repositories: core, extra, multilib, chaotic-aur, zarchblack-local
+# ===================================================================
+
+
+# ===================================================================
+# 1. BASE SYSTEM
+# ===================================================================
+
+# -------------------- Core Packages --------------------
+base
+base-devel
+archiso
+bash-completion
+systemd
+systemd-sysvcompat
+sudo
+binutils
+coreutils
+cronie
+diffutils
+findutils
+gcc
+gettext
+git
+grep
+gzip
+less
+make
+man-db
+man-pages
+nano
+pacman-contrib
+pkgfile
+sed
+tar
+which
+
+# -------------------- Kernel & Firmware --------------------
+linux
+linux-headers
+linux-firmware
+linux-firmware-broadcom
+linux-firmware-marvell
+linux-firmware-qcom
+linux-firmware-qlogic
+linux-firmware-whence
+linux-atm
+amd-ucode
+intel-ucode
+fwupd
+
+# -------------------- Initramfs (mkinitcpio) --------------------
+mkinitcpio
+mkinitcpio-archiso
+mkinitcpio-nfs-utils
+mkinitcpio-openswap
+
+# -------------------- System Libraries & Dependencies --------------------
+glib2
+openssl
+pango
+boost
+boost-libs
+jsoncpp
+libblockdev
+libdrm
+libxinerama
+oniguruma
+ostree
+yaml-cpp
+rhash
+lz4
+lzop
+zstd
+sqlite
+dbus-broker
+polkit
+polkit-qt6
+gnome-keyring
+upower
+haveged
+gpm
+logrotate
+pciutils
+usbutils
+usbmuxd
+
+# -------------------- Hardware Detection --------------------
+hwdata
+hwdetect
+hwloc
+hwinfo
+lm_sensors
+dmidecode
+lsscsi
+inxi
+lshw
+
+
+# ===================================================================
+# 2. BOOT & EFI
+# ===================================================================
+grub
+grub-btrfs
+efibootmgr
+efitools
+edk2-shell
+os-prober
+refind
+syslinux
+update-grub
+arch-install-scripts
+bootconfig
+plymouth
+
+
+# ===================================================================
+# 3. FILESYSTEMS & PARTITIONING
+# ===================================================================
+btrfs-progs
+bcachefs-tools
+cryptsetup
+dosfstools
+e2fsprogs
+exfatprogs
+f2fs-tools
+fatresize
+fsarchiver
+jfsutils
+lvm2
+mdadm
+nilfs-utils
+ntfs-3g
+squashfs-tools
+udftools
+xfsprogs
+zram-generator
+fuse
+fuse3
+gparted
+kpmcore
+parted
+partclone
+partimage
+testdisk
+ddrescue
+clonezilla
+gpart
+fuseiso
+
+
+# ===================================================================
+# 4. HARDWARE SUPPORT
+# ===================================================================
+
+# -------------------- CPU & Power Management --------------------
+power-profiles-daemon
+switcheroo-control
+brightnessctl
+autorandr
+cpupower
+tlp
+thermald
+ananicy-cpp
+
+# -------------------- Storage & Drive Tools --------------------
+hdparm
+hddtemp
+nvme-cli
+sdparm
+sg3_utils
+smartmontools
+mmc-utils
+dmraid
+
+# -------------------- Graphics Drivers (Xorg/Wayland) --------------------
+mesa
+mesa-utils
+lib32-mesa
+xf86-video-amdgpu
+xf86-video-dummy
+xf86-video-fbdev
+xf86-video-intel
+xf86-video-nouveau
+xf86-video-qxl
+vulkan-intel
+vulkan-radeon
+libva-intel-driver
+
+# -------------------- Input & USB --------------------
+libinput
+xf86-input-elographics
+xf86-input-evdev
+xf86-input-libinput
+xf86-input-synaptics
+xf86-input-void
+xf86-input-vmmouse
+usb_modeswitch
+
+# -------------------- Bluetooth --------------------
+bluez
+bluez-hid2hci
+bluez-libs
+bluez-tools
+bluez-utils
+blueman
+
+# -------------------- Printing & Scanning --------------------
+cups
+cups-pdf
+cups-filters
+cups-pk-helper
+hplip
+print-manager
+foomatic-db
+foomatic-db-engine
+ghostscript
+gsfonts
+gutenprint
+skanlite
+skanpage
+
+# -------------------- Virtualization & Guest Agents --------------------
+open-vm-tools
+virtualbox-guest-utils
+qemu-guest-agent
+spice-vdagent
+hyperv
+
+# -------------------- Miscellaneous Hardware --------------------
+bolt
+broadcom-wl-dkms
+game-devices-udev
+iio-sensor-proxy
+laptop-detect
+libfido2
+modemmanager
+pcsclite
+tpm2-tools
+tpm2-tss
+sof-firmware
+b43-fwcutter
+
+
+# ===================================================================
+# 5. NETWORKING
+# ===================================================================
+
+# -------------------- NetworkManager & GUI --------------------
+networkmanager
+networkmanager-openvpn
+networkmanager-pptp
+networkmanager-vpnc
+network-manager-applet
+nm-connection-editor
+
+# -------------------- Core Networking Tools --------------------
+iproute2
+iptables-nft
+nftables
+net-tools
+dhclient
+dhcpcd
+dnsmasq
+dnsutils
+systemd-resolvconf
+wireless-regdb
+wireless_tools
+wpa_supplicant
+iwd
+iw
+rfkill
+reflector
+
+# -------------------- Network Utilities & Diagnostics --------------------
+nmap
+tcpdump
+traceroute
+ethtool
+bind-tools
+ldns
+ndisc6
+netctl
+open-iscsi
+smbclient
+cifs-utils
+nfs-utils
+samba
+lftp
+curl
+wget
+aria2
+httpie
+iperf3
+mtr
+nethogs
+vnstat
+iftop
+bmon
+whois
+lynx
+darkhttpd
+
+# -------------------- VPN & Tunneling --------------------
+openvpn
+wireguard-tools
+ppp
+pptpclient
+rp-pppoe
+openconnect
+xl2tpd
+
+# -------------------- Firewall --------------------
+firewalld
+gufw
+ufw
+
+# -------------------- Zeroconf & Avahi --------------------
+avahi
+nss-mdns
+openpgp-card-tools
+
+# -------------------- Remote Access & Sync --------------------
+openssh
+sshfs
+rsync
+s3fs-fuse
+sequoia-sq
+ventoy-bin
+
+
+# ===================================================================
+# 6. GRAPHICS STACK (XORG & WAYLAND)
+# ===================================================================
+xorg-server
+xorg-server-common
+xorg-bdftopcf
+xorg-iceauth
+xorg-mkfontscale
+xorg-sessreg
+xorg-setxkbmap
+xorg-smproxy
+xorg-x11perf
+xorg-xauth
+xorg-xbacklight
+xorg-xcmsdb
+xorg-xcursorgen
+xorg-xdpyinfo
+xorg-xdriinfo
+xorg-xev
+xorg-xgamma
+xorg-xhost
+xorg-xinput
+xorg-xkbcomp
+xorg-xkbevd
+xorg-xkbprint
+xorg-xkbutils
+xorg-xlsatoms
+xorg-xlsclients
+xorg-xmodmap
+xorg-xpr
+xorg-xprop
+xorg-xrefresh
+xorg-xset
+xorg-xsetroot
+xorg-xvinfo
+xorg-xwd
+xorg-xwininfo
+xorg-xwud
+xorg-xinit
+xorg-xwayland
+xorg-font-util
+xorg-fonts-100dpi
+xorg-fonts-75dpi
+xorg-fonts-encodings
+xorg-xkill
+xorg-xrdb
+xorg-xrandr
+xcb-util
+xcb-util-cursor
+wayland-protocols
+egl-wayland
+waypipe
+lib32-wayland
+kwayland-integration
+plasma-wayland-protocols
+xdg-desktop-portal-kde
+
+
+# ===================================================================
+# 7. AUDIO & MULTIMEDIA
+# ===================================================================
+
+# -------------------- ALSA --------------------
+alsa-card-profiles
+alsa-firmware
+alsa-lib
+alsa-plugins
+alsa-ucm-conf
+alsa-utils
+
+# -------------------- PipeWire --------------------
+pipewire
+pipewire-alsa
+pipewire-audio
+pipewire-jack
+pipewire-pulse
+pipewire-v4l2
+lib32-pipewire-jack
+wireplumber
+libpulse
+pavucontrol
+pavucontrol-qt
+libdvdcss
+playerctl
+
+# -------------------- GStreamer --------------------
+gstreamer
+gst-libav
+gst-plugins-bad
+gst-plugins-base
+gst-plugins-good
+gst-plugins-ugly
+gst-plugins-espeak
+gst-plugin-pipewire
+gst-plugin-dav1d
+gst-plugin-fallbackswitch
+gst-plugin-ffv1
+gst-plugin-gif
+gst-plugin-gtk
+gst-plugin-gtk4
+gst-plugin-hlssink3
+gst-plugin-libcamera
+gst-plugin-regex
+gst-plugin-rsaudiofx
+gst-plugin-rsaudioparsers
+gst-plugin-rsclosedcaption
+gst-plugin-rsflv
+gst-plugin-rspng
+gst-plugin-rsrtp
+gst-plugin-rsrtsp
+gst-plugin-rsvideofx
+gst-plugin-threadshare
+gst-plugin-togglerecord
+gst-plugin-uriplaylistbin
+gst-plugin-va
+gst-plugin-webrtchttp
+
+# -------------------- Multimedia Codecs & Utils --------------------
+ffmpeg
+ffmpegthumbnailer
+ffnvcodec-headers
+faad2
+flac
+lame
+wavpack
+x264
+x265
+xvidcore
+frei0r-plugins
+imagemagick
+mjpegtools
+v4l-utils
+yt-dlp
+sox
+speex
+libopenraw
+opencore-amr
+
+
+# ===================================================================
+# 8. KDE PLASMA DESKTOP ENVIRONMENT
+# ===================================================================
+
+# -------------------- Plasma Core --------------------
+plasma-desktop
+plasma-workspace
+plasma-nm
+plasma-pa
+plasma-browser-integration
+plasma-integration
+plasma-systemmonitor
+plasma-thunderbolt
+plasma-vault
+plasma-disks
+plasma-keyboard
+plasma-sdk
+plasma-x11-session
+plasma-welcome
+plasma-activities
+plasma-activities-stats
+plasma-firewall
+plasma-login-manager
+plasma-workspace-wallpapers
+plasma5support
+libplasma
+kwin
+kwin-x11
+kwayland
+breeze-cursors
+breeze-plymouth
+oxygen-cursors
+knighttime
+plymouth-kcm
+wacomtablet
+
+# -------------------- Plasma Components --------------------
+bluedevil
+breeze
+breeze-gtk
+drkonqi
+kde-gtk-config
+kde-inotify-survey
+kde-system-meta
+kgamma
+kglobalacceld
+kpipewire
+krdp
+kscreenlocker
+kscreen
+kwrited
+layer-shell-qt
+milou
+ocean-sound-theme
+oxygen
+oxygen-sounds
+powerdevil
+qqc2-breeze-style
+systemsettings
+kinfocenter
+krunner
+
+# -------------------- KDE Frameworks & Libs --------------------
+aurorae
+kdecoration
+kactivitymanagerd
+kirigami
+libkscreen
+libksysguard
+kcoreaddons
+ki18n
+kconfig
+kio
+kxmlgui
+
+# -------------------- SDDM (Display Manager) --------------------
+sddm
+sddm-kcm
+
+# -------------------- Plasma Extras & Enhancements --------------------
+kdeplasma-addons
+kde-material-you-colors
+kwin-effect-rounded-corners-git
+plasma6-applets-panel-colorizer
+
+
+# ===================================================================
+# 9. KDE APPLICATIONS
+# ===================================================================
+
+# -------------------- File Management --------------------
+ark
+dolphin
+dolphin-plugins
+filelight
+gwenview
+kamera
+okular
+spectacle
+svgpart
+colord-kde
+kdegraphics-thumbnailers
+kcolorchooser
+krusader
+
+# -------------------- Network & Internet --------------------
+kdeconnect
+kdenetwork-filesharing
+kio-admin
+kio-extras
+kio-gdrive
+kio-zeroconf
+konversation
+krdc
+krfb
+signon-kwallet-extension
+smb4k
+kget
+kdenlive
+
+# -------------------- Utilities & Tools --------------------
+kate
+kcharselect
+kdebugsettings
+kdialog
+keditbookmarks
+kfind
+kgpg
+konsole
+ksystemlog
+kwalletmanager
+markdownpart
+partitionmanager
+qalculate-qt
+kalk
+kcalc
+sweeper
+yakuake
+kclock
+kcron
+kjournald
+koko
+krecorder
+kweather
+isoimagewriter
+francis
+
+# -------------------- Multimedia (KDE-specific) --------------------
+audiocd-kio
+ffmpegthumbs
+phonon-qt6-vlc
+k3b
+kamoso
+plasmatube
+elisa
+kmix
+
+# -------------------- System Administration --------------------
+discover
+kde-cli-tools
+ksshaskpass
+ksystemstats
+kwallet-pam
+packagekit-qt6
+polkit-kde-agent
+systemdgenie
+vala
+
+# -------------------- Personal Information Management --------------------
+akregator
+kaddressbook
+merkuro
+
+
+# ===================================================================
+# 10. APPLICATIONS (GENERIC / CROSS-DESKTOP)
+# ===================================================================
+
+# -------------------- Web Browsers --------------------
+brave-bin
+thorium-browser-bin
+
+# -------------------- Office & Productivity --------------------
+libreoffice-still
+calibre
+media-downloader
+keepassxc
+localsend
+gimp
+krita
+meld
+qbittorrent
+
+# -------------------- Multimedia Players --------------------
+vlc
+audacity
+
+# -------------------- Accessibility --------------------
+brltty
+espeakup
+livecd-sounds
+orca
+
+# -------------------- Printing --------------------
+system-config-printer
+
+
+# ===================================================================
+# 11. TERMINALS, SHELLS, AND CLI UTILITIES
+# ===================================================================
+
+# -------------------- Terminal Emulators --------------------
+alacritty
+foot-terminfo
+kitty
+kitty-terminfo
+konsole
+
+# -------------------- Shells --------------------
+fish
+oh-my-posh-bin
+starship
+zoxide
+
+# -------------------- CLI Productivity & Monitoring --------------------
+btop
+cava
+duf
+eza
+fastfetch
+fd
+gum
+htop
+iotop
+nmon
+nvtop
+screen
+tmux
+tree
+neovim
+ranger
+ncdu
+dust
+bat
+bat-extras
+ripgrep
+ripgrep-all
+semver
+tldr
+fzf
+hyperfine
+direnv
+flameshot
+asciinema
+vim
+
+# -------------------- System Info & Debug --------------------
+gdb
+strace
+ltrace
+hexedit
+ghex
+exiftool
+figlet
+lolcat
+jq
+pkgstats
+rate-mirrors
+topgrade
+xdo
+xdotool
+
+
+# ===================================================================
+# 12. THEMING, ICONS, AND FONTS
+# ===================================================================
+
+# -------------------- Qt & GTK Theming --------------------
+kvantum
+kvantum-qt5
+qt5ct
+qt6-base
+qt6-wayland
+qt6-declarative
+qt6-multimedia-ffmpeg
+qt6-virtualkeyboard
+qt5-declarative
+qt5-wayland
+adw-gtk-theme
+gnome-themes-extra
+materia-gtk-theme
+appmenu-gtk-module
+gtk-update-icon-cache
+xsettingsd
+dconf-editor
+
+# -------------------- Cursor Themes --------------------
+bibata-cursor-theme
+colloid-cursors-git
+vimix-cursors
+
+# -------------------- Icon Themes --------------------
+tela-circle-icon-theme-purple
+candy-icons-git
+slot-symbolic-dark-icons
+neo-candy-icons-git
+
+# -------------------- Fonts --------------------
+noto-fonts
+noto-fonts-emoji
+noto-fonts-cjk
+adobe-source-sans-fonts
+awesome-terminal-fonts
+cantarell-fonts
+opendesktop-fonts
+otf-libertinus
+tex-gyre-fonts
+terminus-font
+ttf-bitstream-vera
+ttf-caladea
+ttf-carlito
+ttf-croscore
+ttf-dejavu
+ttf-fira-code
+ttf-hack
+ttf-hack-nerd
+ttf-jetbrains-mono
+ttf-jetbrains-mono-nerd
+ttf-liberation
+ttf-meslo-nerd
+ttf-meslo-nerd-font-powerlevel10k
+ttf-opensans
+ttf-roboto
+ttf-roboto-mono
+ttf-ubuntu-font-family
+
+
+# ===================================================================
+# 13. BUILD SUPPORT & SCRIPTING
+# ===================================================================
+
+# -------------------- Build Essentials --------------------
+pkg-config
+
+# -------------------- Python (System & Tools) --------------------
+python
+python-pip
+python-setuptools
+python-pyparted
+python-pyqt5
+python-pyqt6
+python-pygments
+
+# -------------------- Perl (System & AUR) --------------------
+perl
+perl-xml-parser
+perl-lwp-protocol-https
+
+# -------------------- Version Control Extras --------------------
+git-lfs
+
+
+# ===================================================================
+# 14. FILE MANAGEMENT (EXTRA TOOLS)
+# ===================================================================
+
+# -------------------- GVFS Backends --------------------
+gvfs
+gvfs-afc
+gvfs-dnssd
+gvfs-goa
+gvfs-gphoto2
+gvfs-mtp
+gvfs-nfs
+gvfs-onedrive
+gvfs-smb
+gvfs-wsdd
+mtpfs
+
+# -------------------- Tumbler (Thumbnail Generators) --------------------
+freetype2
+libgsf
+poppler-glib
+poppler-qt6
+tumbler
+
+# -------------------- Archive & Compression Tools --------------------
+7zip
+unzip
+zip
+unrar
+unace
+unarj
+unarchiver
+lhasa
+lrzip
+lzip
+bzip2
+xz
+
+
+# ===================================================================
+# 15. PACKAGE MANAGEMENT
+# ===================================================================
+pacman-bintrans
+paru
+yay
+downgrade
+archlinux-appstream-data
+archlinux-keyring
+archinstall
+flatpak
+flatpak-kcm
+appstream-glib
+appstream-qt
+packagekit
+expac
+pacutils
+
+
+# ===================================================================
+# 16. SYSTEM UTILITIES & OPTIMIZATION
+# ===================================================================
+preload
+timeshift
+scx-tools
+zpackagemanager
+firejail
+xclip
+xdg-user-dirs
+xdg-utils
+wmctrl
+arandr
+dex
+hblock
+numlockx
+gptfdisk
+mtools
+nbd
+parallel
+pv
+encfs
+gocryptfs
+udiskie
+udisks2
+grsync
+chrony
+dbus-python
+intltool
+lsb-release
+xmlstarlet
+xmlto
+python-dbus
+zenity
+yad
+ocs-url
+
+
+# ===================================================================
+# 17. LIVE ENVIRONMENT & RECOVERY
+# ===================================================================
+dialog
+memtest86+
+memtest86+-efi
+calamares
+ckbcomp
+
+
+# ===================================================================
+# 18. CHAOTIC-AUR & EXTRA PACKAGES
+# ===================================================================
+chaotic-keyring
+chaotic-mirrorlist
+gtk4
+libadwaita
+vte4
+qt6-svg
+variety
+
+
+# ===================================================================
+# 19. SECURITY & HACKING TOOLS
+# ===================================================================
+
+# -------------------- ZarchBlack Tooling --------------------
+zarch-hacking
+zarchguard
+
+
+# ===================================================================
+# END OF MANIFEST
+# ===================================================================

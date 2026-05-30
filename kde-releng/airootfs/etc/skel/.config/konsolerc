@@ -1,0 +1,21 @@
+[Desktop Entry]
+DefaultProfile=ZarchBlack.profile
+
+[General]
+ConfigVersion=1
+
+[KonsoleWindow]
+AllowMenuAccelerators=true
+RememberWindowSize=false
+ShowMenuBarByDefault=false
+
+[MainWindow]
+MenuBar=Disabled
+StatusBar=Disabled
+
+[TabBar]
+CloseTabOnMiddleMouseButton=true
+NewTabButton=true
+
+[UiSettings]
+ColorScheme=

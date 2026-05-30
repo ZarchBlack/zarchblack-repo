@@ -1,0 +1,43 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# ZarchGuard - Security hardening package for ZarchBlack
+
+pkgname=zarchguard
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="ZarchBlack Security Hardening - Firewall, sandboxing, and system protection defaults"
+arch=('x86_64')
+url="https://github.com/ZarchBlack/zarchblack"
+license=('GPL3')
+depends=('firewalld' 'ufw' 'firejail' 'polkit')
+install=zarchguard.install
+source=()
+sha256sums=()
+
+package() {
+  mkdir -p "${pkgdir}/etc"
+  mkdir -p "${pkgdir}/usr/share/zarchguard"
+  
+  # Firewall defaults
+  mkdir -p "${pkgdir}/etc/firewalld"
+  cat > "${pkgdir}/etc/firewalld/zones/zarchblack.xml" << EOF
+<?xml version="1.0" encoding="utf-8"?>
+<zone>
+  <short>ZarchBlack</short>
+  <description>ZarchBlack hardened firewall zone</description>
+  <service name="dhcpv6-client"/>
+  <service name="ssh"/>
+  <service name="samba-client"/>
+  <service name="mdns"/>
+</zone>
+EOF
+
+  # Polkit rules
+  mkdir -p "${pkgdir}/etc/polkit-1/rules.d"
+  cat > "${pkgdir}/etc/polkit-1/rules.d/10-zarchblack.rules" << 'RULES'
+polkit.addAdminRule(function(action, subject) {
+    return ["unix-group:wheel"];
+});
+RULES
+
+  echo "ZarchGuard ${pkgver}" > "${pkgdir}/usr/share/zarchguard/version"
+}

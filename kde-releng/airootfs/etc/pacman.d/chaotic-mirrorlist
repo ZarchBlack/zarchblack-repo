@@ -1,0 +1,40 @@
+# STARTED AT: 2026-04-15 18:26:11.229572048 +01:00
+# VERSION: 0.28.2
+# ARGS: rate-mirrors --allow-root --protocol https chaotic-aur
+# MIRRORS LEFT AFTER FILTERING: 6
+# JUMP #1
+# EXPLORING US
+# VISITED US
+# BLANK ITERATION
+# COUNTRY JUMPING YIELDED TOO FEW MIRRORS (0), ADDING OTHERS TO UNLABELED
+# 
+
+# TESTING UNLABELED MIRRORS
+# SpeedTestResult { speed: 859.0 KB/s; elapsed: 991ms; connection_time: 591ms }
+# SpeedTestResult { speed: 1.3 MB/s; elapsed: 998ms; connection_time: 603ms }
+# SpeedTestResult { speed: 1.6 MB/s; elapsed: 998ms; connection_time: 722ms }
+# SpeedTestResult { speed: 903.6 KB/s; elapsed: 994ms; connection_time: 997ms }
+# SpeedTestResult { speed: 148.4 KB/s; elapsed: 969ms; connection_time: 1.40s }
+# SpeedTestResult { speed: 409.7 KB/s; elapsed: 959ms; connection_time: 2.10s }
+# 
+
+# RE-TESTING TOP MIRRORS
+# SpeedTestResult { speed: 4.4 MB/s; elapsed: 998ms; connection_time: 377ms }
+# SpeedTestResult { speed: 2.8 MB/s; elapsed: 999ms; connection_time: 661ms }
+# SpeedTestResult { speed: 1.4 MB/s; elapsed: 987ms; connection_time: 910ms }
+# SpeedTestResult { speed: 3.6 MB/s; elapsed: 998ms; connection_time: 741ms }
+# SpeedTestResult { speed: 370.8 KB/s; elapsed: 883ms; connection_time: 1.40s }
+# ==== RESULTS (top re-tested) ====
+#   1. SpeedTestResult { speed: 4.4 MB/s; elapsed: 998ms; connection_time: 377ms } -> https://de-mirror.chaotic.cx/
+#   2. SpeedTestResult { speed: 3.6 MB/s; elapsed: 998ms; connection_time: 741ms } -> https://us-mirror.chaotic.cx/
+#   3. SpeedTestResult { speed: 2.8 MB/s; elapsed: 999ms; connection_time: 661ms } -> https://cdn-mirror.chaotic.cx/
+#   4. SpeedTestResult { speed: 1.4 MB/s; elapsed: 987ms; connection_time: 910ms } -> https://geo-mirror.chaotic.cx/
+#   5. SpeedTestResult { speed: 370.8 KB/s; elapsed: 883ms; connection_time: 1.40s } -> https://br-mirror.chaotic.cx/
+#   6. SpeedTestResult { speed: 148.4 KB/s; elapsed: 969ms; connection_time: 1.40s } -> https://in-mirror.chaotic.cx/
+# FINISHED AT: 2026-04-15 18:26:24.093086256 +01:00
+Server = https://de-mirror.chaotic.cx/$repo/$arch
+Server = https://us-mirror.chaotic.cx/$repo/$arch
+Server = https://cdn-mirror.chaotic.cx/$repo/$arch
+Server = https://geo-mirror.chaotic.cx/$repo/$arch
+Server = https://br-mirror.chaotic.cx/$repo/$arch
+Server = https://in-mirror.chaotic.cx/$repo/$arch

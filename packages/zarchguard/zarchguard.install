@@ -1,0 +1,4 @@
+post_install() {
+  echo "ZarchGuard ${pkgver} installed"
+  echo "Enable firewall: systemctl enable --now firewalld"
+}

@@ -1,0 +1,17 @@
+[SddmGreeterTheme]
+Name=ZeroDark
+Description=ZeroDark
+Author=ZarchBlack
+Copyright=(c) 2025, ZarchBlack
+License=CC-BY-SA
+Type=sddm-theme
+Version=v1.0
+Website=https://github.com/sddm/sddm
+Screenshot=preview.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Email=zarchblack@protonmail.com
+Theme-Id=ZeroDark
+Theme-API=2.0
+QtVersion=6
