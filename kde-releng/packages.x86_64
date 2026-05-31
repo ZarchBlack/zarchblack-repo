@@ -50,6 +50,7 @@ which
 # -------------------- Kernel & Firmware --------------------
 linux-cachyos
 linux-cachyos-headers
+zarchblack-kernel
 linux-firmware
 linux-firmware-broadcom
 linux-firmware-marvell

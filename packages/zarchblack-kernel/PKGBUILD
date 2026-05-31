@@ -1,0 +1,36 @@
+# Maintainer: ZarchBlack Team <zarchblack@proton.me>
+# ZarchBlack kernel meta-package — depends on linux-cachyos
+
+pkgname=zarchblack-kernel
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="ZarchBlack Linux kernel — optimized Arch kernel with BORE scheduler (CachyOS)"
+arch=('any')
+url="https://github.com/ZarchBlack/zarchblack"
+license=('GPL-3.0-only')
+depends=(
+    'linux-cachyos'
+    'linux-cachyos-headers'
+)
+optdepends=(
+    'linux-cachyos-zfs: ZFS filesystem support'
+    'linux-cachyos-nvidia-open: NVIDIA open kernel modules'
+)
+conflicts=('linux' 'linux-lts' 'linux-zen')
+replaces=()
+
+package() {
+    # Meta package — no files to install
+    # All functionality provided by linux-cachyos dependency
+    install -dm755 "$pkgdir"
+
+    # Install kernel info file
+    install -dm755 "$pkgdir/usr/share/zarchblack"
+    cat > "$pkgdir/usr/share/zarchblack/kernel.info" << KERNELINFO
+ZarchBlack Kernel Information
+==============================
+Kernel:     linux-cachyos (BORE Scheduler)
+Optimized:  x86-64-v3
+Source:     https://github.com/CachyOS/linux-cachyos
+KERNELINFO
+}
