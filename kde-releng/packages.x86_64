@@ -661,6 +661,8 @@ merkuro
 # -------------------- Web Browsers --------------------
 brave-bin
 thorium-browser-bin
+antigravity-bin
+opencode-bin
 
 # -------------------- Office & Productivity --------------------
 libreoffice-still
