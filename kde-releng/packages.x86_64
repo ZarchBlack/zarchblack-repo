@@ -661,8 +661,6 @@ merkuro
 # -------------------- Web Browsers --------------------
 brave-bin
 thorium-browser-bin
-antigravity-bin
-opencode-bin
 
 # -------------------- Office & Productivity --------------------
 libreoffice-still
@@ -892,9 +890,6 @@ yay
 downgrade
 archlinux-appstream-data
 archlinux-keyring
-cachyos-keyring
-cachyos-mirrorlist
-cachyos-v3-mirrorlist
 archinstall
 flatpak
 flatpak-kcm
