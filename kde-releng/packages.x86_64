@@ -48,8 +48,8 @@ tar
 which
 
 # -------------------- Kernel & Firmware --------------------
-linux
-linux-headers
+linux-cachyos
+linux-cachyos-headers
 linux-firmware
 linux-firmware-broadcom
 linux-firmware-marvell
@@ -890,6 +890,9 @@ yay
 downgrade
 archlinux-appstream-data
 archlinux-keyring
+cachyos-keyring
+cachyos-mirrorlist
+cachyos-v3-mirrorlist
 archinstall
 flatpak
 flatpak-kcm
