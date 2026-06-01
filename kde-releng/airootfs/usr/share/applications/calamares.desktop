@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Install ZarchBlack
+GenericName=System Installer
+Comment=Install ZarchBlack Linux to your computer
+Exec=sudo -E calamares
+Icon=calamares
+Terminal=false
+Categories=System;
+Keywords=install;installer;system;
