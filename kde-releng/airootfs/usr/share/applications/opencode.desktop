@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=OpenCode
+GenericName=AI Coding Assistant
+Comment=AI-powered coding assistant for the terminal
+Exec=opencode
+Icon=opencode
+Terminal=true
+Type=Application
+Categories=Development;AI;
+Keywords=ai;code;assistant;terminal;
