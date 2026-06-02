@@ -36,3 +36,6 @@ sed -i \
   -e 's|title="$(gettext_printf "%s, with Linux %s (recovery mode)" "${os}" "${version}")"|title="$(gettext_printf "%s (recovery)" "${os}")"|' \
   -e 's|title="$(gettext_printf "%s, with Linux %s" "${os}" "${version}")"|title="$(gettext_printf "%s" "${os}")"|' \
   /etc/grub.d/10_linux
+
+# 9. Override Calamares Desktop Shortcut
+cp /etc/calamares/calamares.desktop /usr/share/applications/calamares.desktop
