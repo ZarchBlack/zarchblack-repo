@@ -6,7 +6,7 @@ locale-gen
 
 # 2. Keyring
 pacman-key --init
-pacman-key --populate archlinux chaotic cachyos
+pacman-key --populate archlinux chaotic cachyos blackarch
 
 # 3. Create autologin group and liveuser
 groupadd -f autologin
