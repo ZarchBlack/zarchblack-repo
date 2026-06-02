@@ -40,7 +40,10 @@ sed -i \
 # 9. Override Calamares Desktop Shortcut
 cp /etc/calamares/calamares.desktop /usr/share/applications/calamares.desktop
 
-# 10. Enable System Services Natively
+# 10. Disable conflicting network services
+systemctl disable systemd-networkd.service systemd-networkd-wait-online.service systemd-resolved.service || true
+
+# 11. Enable System Services Natively
 systemctl enable NetworkManager.service
 systemctl enable sddm.service
 systemctl enable bluetooth.service
