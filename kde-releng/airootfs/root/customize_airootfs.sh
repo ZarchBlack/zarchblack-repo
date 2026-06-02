@@ -40,5 +40,17 @@ sed -i \
 # 9. Override Calamares Desktop Shortcut
 cp /etc/calamares/calamares.desktop /usr/share/applications/calamares.desktop
 
-# 10. Enable NetworkManager
+# 10. Enable System Services Natively
 systemctl enable NetworkManager.service
+systemctl enable sddm.service
+systemctl enable bluetooth.service
+systemctl enable avahi-daemon.service
+systemctl enable systemd-timesyncd.service
+systemctl enable fstrim.timer
+systemctl enable vmware-vmblock-fuse.service
+systemctl enable vboxservice.service
+systemctl enable vmtoolsd.service
+
+# Set default target to GUI
+systemctl set-default graphical.target
+
