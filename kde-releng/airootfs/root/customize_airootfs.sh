@@ -39,3 +39,6 @@ sed -i \
 
 # 9. Override Calamares Desktop Shortcut
 cp /etc/calamares/calamares.desktop /usr/share/applications/calamares.desktop
+
+# 10. Enable NetworkManager
+systemctl enable NetworkManager.service
