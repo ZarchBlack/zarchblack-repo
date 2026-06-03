@@ -9,7 +9,7 @@ Welcome to the official package repository for **ZarchBlack OS**, the ultimate A
 ## 🚀 Download ZarchBlack OS
 Get the latest live ISO image to install or test ZarchBlack.
 
-[![Download ISO from Hugging Face](https://img.shields.io/badge/Download_ISO-Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/ZarchBlack/ZarchBlack-OS/tree/main)
+[![Download ISO from Hugging Face](https://img.shields.io/badge/Download_ISO-Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/datasets/zarchblack/zarchblack-releases/tree/main)
 
 ---
 
