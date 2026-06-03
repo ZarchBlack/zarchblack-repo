@@ -49,7 +49,7 @@ desktopchangeosdEnabled=false
 dynamic_workspacesEnabled=true
 force-decorations-gtk3Enabled=false
 forceblurEnabled=true
-krohnkiteEnabled=false
+krohnkiteEnabled=true
 kwin4_effect_dimscreenEnabled=true
 kwin4_effect_fadedesktopEnabled=true
 kwin4_effect_maximizeEnabled=false
@@ -98,11 +98,19 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
+[Tiling][290014f1-ab74-4eff-ab3d-0f5e50435119][43fdf2e3-fdb0-482d-a392-f73085b4c046]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
 [Tiling][290014f1-ab74-4eff-ab3d-0f5e50435119][4842f85a-3837-4efb-9c04-ef2d0ad7860b]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][290014f1-ab74-4eff-ab3d-0f5e50435119][48fec263-7b61-4d28-9263-63eeb24e03bf]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][290014f1-ab74-4eff-ab3d-0f5e50435119][515a9a7e-9fec-4b2e-8ef5-fdab58006e92]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
@@ -141,11 +149,19 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
+[Tiling][459315d0-9437-4fde-9640-295bbc95ff31][43fdf2e3-fdb0-482d-a392-f73085b4c046]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
 [Tiling][459315d0-9437-4fde-9640-295bbc95ff31][4842f85a-3837-4efb-9c04-ef2d0ad7860b]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][459315d0-9437-4fde-9640-295bbc95ff31][48fec263-7b61-4d28-9263-63eeb24e03bf]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][459315d0-9437-4fde-9640-295bbc95ff31][515a9a7e-9fec-4b2e-8ef5-fdab58006e92]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
