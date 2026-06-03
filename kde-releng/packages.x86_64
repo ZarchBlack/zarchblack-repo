@@ -57,6 +57,8 @@ linux-firmware-qcom
 linux-firmware-qlogic
 linux-firmware-whence
 linux-atm
+r8168-dkms
+r8125-dkms
 amd-ucode
 intel-ucode
 fwupd
