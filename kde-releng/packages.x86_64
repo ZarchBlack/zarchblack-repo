@@ -302,6 +302,7 @@ nfs-utils
 samba
 lftp
 curl
+visual-studio-code-bin
 wget
 aria2
 httpie
