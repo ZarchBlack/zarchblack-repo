@@ -36,4 +36,4 @@ file_permissions=(
   ["/usr/share/plasma/plasmoids/com.github.exequtic.apdatifier/contents/tools/sh/widgets"]="0:0:755"
   ["/usr/share/plasma/plasmoids/com.github.exequtic.apdatifier/contents/tools/sh/widgets-id"]="0:0:755"
 )
-airootfs_image_tool_options=('-comp' 'xz' '-Xbcj' 'x86' '-b' '1M' '-Xdict-size' '1M')
+airootfs_image_tool_options=('-comp' 'xz' '-Xbcj' 'x86' '-b' '1M' '-Xdict-size' '1M' '-mem' '4G' '-processors' '4')
