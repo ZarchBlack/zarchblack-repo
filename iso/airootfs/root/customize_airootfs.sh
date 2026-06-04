@@ -7,6 +7,10 @@ locale-gen
 # 2. Keyring
 pacman-key --init
 pacman-key --populate archlinux chaotic cachyos blackarch
+if [ -f /etc/pacman.d/zarchblack.gpg ]; then
+    pacman-key --add /etc/pacman.d/zarchblack.gpg
+    pacman-key --lsign-key security@zarchblack.org
+fi
 
 # 3. Create autologin group and liveuser
 groupadd -f autologin

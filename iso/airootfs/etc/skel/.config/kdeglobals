@@ -3,142 +3,128 @@ update_info=filepicker.upd:filepicker-remove-old-previews-entry,fonts_global.upd
 
 [ColorEffects:Disabled]
 ChangeSelectionColor=
-Color=#19161d
-ColorAmount=0.5
-ColorEffect=3
-ContrastAmount=0
+Color=30, 30, 46
+ColorAmount=0.30000000000000004
+ColorEffect=2
+ContrastAmount=0.1
 ContrastEffect=0
 Enable=
-IntensityAmount=0
+IntensityAmount=-1
 IntensityEffect=0
 
 [ColorEffects:Inactive]
 ChangeSelectionColor=true
-Color=#000000
-ColorAmount=0.025
-ColorEffect=0
-ContrastAmount=0.1
+Color=30, 30, 46
+ColorAmount=0.5
+ColorEffect=3
+ContrastAmount=0
 ContrastEffect=0
 Enable=true
 IntensityAmount=0
 IntensityEffect=0
 
 [Colors:Button]
-BackgroundAlternate=112,58,158
-BackgroundNormal=#1f1c24
+BackgroundAlternate=118,65,168
+BackgroundNormal=49, 50, 68
 DecorationFocus=148,72,211
 DecorationHover=148,72,211
 ForegroundActive=148,72,211
-ForegroundInactive=#78737e
+ForegroundInactive=166, 173, 200
 ForegroundLink=210,191,235
-ForegroundNegative=#FF6A9D
-ForegroundNeutral=#FF734A
-ForegroundNormal=#eae3ef
-ForegroundPositive=#31C193
-ForegroundVisited=#BA87EF
+ForegroundNegative=243, 139, 168
+ForegroundNeutral=249, 226, 175
+ForegroundNormal=205, 214, 244
+ForegroundPositive=166, 227, 161
+ForegroundVisited=203, 166, 247
 
 [Colors:Complementary]
-BackgroundAlternate=#0c0a0f
-BackgroundNormal=#19161d
+BackgroundAlternate=17, 17, 27
+BackgroundNormal=24, 24, 37
 DecorationFocus=148,72,211
 DecorationHover=148,72,211
 ForegroundActive=148,72,211
-ForegroundInactive=#78737e
+ForegroundInactive=166, 173, 200
 ForegroundLink=210,191,235
-ForegroundNegative=#FF6A9D
-ForegroundNeutral=#FF734A
-ForegroundNormal=#aea9b4
-ForegroundPositive=#31C193
-ForegroundVisited=#BA87EF
+ForegroundNegative=243, 139, 168
+ForegroundNeutral=249, 226, 175
+ForegroundNormal=205, 214, 244
+ForegroundPositive=166, 227, 161
+ForegroundVisited=203, 166, 247
 
 [Colors:Header]
-BackgroundAlternate=#19161d
-BackgroundNormal=#19161d
+BackgroundAlternate=17, 17, 27
+BackgroundNormal=24, 24, 37
 DecorationFocus=148,72,211
 DecorationHover=148,72,211
 ForegroundActive=148,72,211
-ForegroundInactive=#78737e
+ForegroundInactive=166, 173, 200
 ForegroundLink=210,191,235
-ForegroundNegative=#FF6A9D
-ForegroundNeutral=#FF734A
-ForegroundNormal=#aea9b4
-ForegroundPositive=#31C193
-ForegroundVisited=#BA87EF
-
-[Colors:Header][Inactive]
-BackgroundAlternate=#19161d
-BackgroundNormal=#19161d
-DecorationFocus=#cdc0ec
-DecorationHover=#cdc0ec
-ForegroundActive=#faf5fc
-ForegroundInactive=#78737e
-ForegroundLink=#6F9FE7
-ForegroundNegative=#FF6A9D
-ForegroundNeutral=#FF734A
-ForegroundNormal=#aea9b4
-ForegroundPositive=#31C193
-ForegroundVisited=#BA87EF
+ForegroundNegative=243, 139, 168
+ForegroundNeutral=249, 226, 175
+ForegroundNormal=205, 214, 244
+ForegroundPositive=166, 227, 161
+ForegroundVisited=203, 166, 247
 
 [Colors:Selection]
-BackgroundAlternate=107,53,152
-BackgroundNormal=107,53,152
+BackgroundAlternate=112,59,161
+BackgroundNormal=112,59,161
 DecorationFocus=148,72,211
 DecorationHover=148,72,211
 ForegroundActive=148,72,211
 ForegroundInactive=255,255,255
-ForegroundLink=108,53,154
-ForegroundNegative=#96034A
-ForegroundNeutral=#A32B02
+ForegroundLink=210,191,235
+ForegroundNegative=243, 139, 168
+ForegroundNeutral=249, 226, 175
 ForegroundNormal=255,255,255
-ForegroundPositive=#16B386
-ForegroundVisited=#5E2D8F
+ForegroundPositive=166, 227, 161
+ForegroundVisited=203, 166, 247
 
 [Colors:Tooltip]
-BackgroundAlternate=#25222b
-BackgroundNormal=#19161d
+BackgroundAlternate=27,25,35
+BackgroundNormal=30, 30, 46
 DecorationFocus=148,72,211
 DecorationHover=148,72,211
 ForegroundActive=148,72,211
-ForegroundInactive=#78737e
+ForegroundInactive=166, 173, 200
 ForegroundLink=210,191,235
-ForegroundNegative=#FF6A9D
-ForegroundNeutral=#FF734A
-ForegroundNormal=#eae3ef
-ForegroundPositive=#31C193
-ForegroundVisited=#BA87EF
+ForegroundNegative=243, 139, 168
+ForegroundNeutral=249, 226, 175
+ForegroundNormal=205, 214, 244
+ForegroundPositive=166, 227, 161
+ForegroundVisited=203, 166, 247
 
 [Colors:View]
-BackgroundAlternate=#19161d
-BackgroundNormal=#0c0a0f
+BackgroundAlternate=24, 24, 37
+BackgroundNormal=30, 30, 46
 DecorationFocus=148,72,211
 DecorationHover=148,72,211
 ForegroundActive=148,72,211
-ForegroundInactive=#78737e
+ForegroundInactive=166, 173, 200
 ForegroundLink=210,191,235
-ForegroundNegative=#FF6A9D
-ForegroundNeutral=#FF734A
-ForegroundNormal=#eae3ef
-ForegroundPositive=#31C193
-ForegroundVisited=#BA87EF
+ForegroundNegative=243, 139, 168
+ForegroundNeutral=249, 226, 175
+ForegroundNormal=205, 214, 244
+ForegroundPositive=166, 227, 161
+ForegroundVisited=203, 166, 247
 
 [Colors:Window]
-BackgroundAlternate=#25222b
-BackgroundNormal=#19161d
+BackgroundAlternate=17, 17, 27
+BackgroundNormal=24, 24, 37
 DecorationFocus=148,72,211
 DecorationHover=148,72,211
 ForegroundActive=148,72,211
-ForegroundInactive=#78737e
+ForegroundInactive=166, 173, 200
 ForegroundLink=210,191,235
-ForegroundNegative=#FF6A9D
-ForegroundNeutral=#FF734A
-ForegroundNormal=#aea9b4
-ForegroundPositive=#31C193
-ForegroundVisited=#BA87EF
+ForegroundNegative=243, 139, 168
+ForegroundNeutral=249, 226, 175
+ForegroundNormal=205, 214, 244
+ForegroundPositive=166, 227, 161
+ForegroundVisited=203, 166, 247
 
 [General]
 AccentColor=148,72,211
-ColorScheme=MaterialYouDark
-ColorSchemeHash=7ecc7963967bfd8c7959046c9938a21670526bd9
+ColorScheme=CatppuccinMochaLavender
+ColorSchemeHash=86c416d910e6c2079b3f9a0cdde0853b77843400
 LastUsedCustomAccentColor=148,72,211
 Name=Layan
 shadeSortColumn=true
@@ -180,9 +166,9 @@ XwaylandClientsScale=false
 MaximumRemoteSize=0
 
 [WM]
-activeBackground=37,34,43
-activeBlend=252,252,252
-activeForeground=234,227,239
-inactiveBackground=60,54,74
-inactiveBlend=161,169,177
-inactiveForeground=196,187,212
+activeBackground=30,30,46
+activeBlend=205,214,244
+activeForeground=205,214,244
+inactiveBackground=17,17,27
+inactiveBlend=166,173,200
+inactiveForeground=166,173,200

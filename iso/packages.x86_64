@@ -34,6 +34,7 @@ findutils
 gcc
 gettext
 git
+cmake
 grep
 gzip
 less
@@ -236,6 +237,8 @@ skanpage
 
 # -------------------- Virtualization & Guest Agents --------------------
 open-vm-tools
+virtualbox
+virtualbox-host-modules-arch
 virtualbox-guest-utils
 qemu-guest-agent
 spice-vdagent

@@ -35,10 +35,10 @@ images:
     productWelcome:      "languages.png"
 
 style:
-   SidebarBackground:        "#292F34"
-   SidebarText:              "#FFFFFF"
-   SidebarTextCurrent:       "#292F34"
-   SidebarBackgroundCurrent: "#D35400"
+   SidebarBackground:        "#0d0914"
+   SidebarText:              "#a0a0b0"
+   SidebarTextCurrent:       "#0d0914"
+   SidebarBackgroundCurrent: "#00ffff"
 
 slideshow:               "show.qml"
 
