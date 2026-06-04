@@ -8,7 +8,10 @@ pkgdesc="ZarchBlack icon theme collection - Magna, Tela, Reversal, and custom th
 arch=('any')
 url="https://github.com/ZarchBlack/zarchblack"
 license=('GPL3')
-depends=('magna-dark-icons' 'tela-circle-icon-theme-purple')
+depends=('tela-circle-icon-theme-purple')
+optdepends=(
+  'magna-dark-icons: Magna Dark icon theme'
+)
 install=zarchblack-icons.install
 source=()
 sha256sums=()
