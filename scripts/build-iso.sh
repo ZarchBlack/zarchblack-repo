@@ -5,7 +5,7 @@
 # ===================================================================
 set -euo pipefail
 
-ISO_PROFILE="kde-releng"
+ISO_PROFILE="iso"
 WORK_DIR="./work"
 OUT_DIR="./out"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"

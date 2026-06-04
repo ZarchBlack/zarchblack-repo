@@ -27,8 +27,8 @@ Scroll to the bottom of the file and add the following lines:
 
 ```ini
 [zarchblack-repo]
-SigLevel = Optional TrustAll
-Server = https://zarchblack.github.io/zarchblack-repo/$arch
+SigLevel = Required DatabaseOptional
+Server = https://github.com/ZarchBlack/zarchblack-repo/releases/download/repo
 ```
 
 ### 3. Sync and Install
