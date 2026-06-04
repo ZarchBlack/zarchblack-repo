@@ -19,20 +19,20 @@ echo -e "${COLOR_CYAN}    ZarchBlack Host Pacman Keyring Setup         ${COLOR_R
 echo -e "${COLOR_PURPLE}==================================================${COLOR_RESET}"
 
 if [[ $EUID -ne 0 ]]; then
-  echo -e "${COLOR_RED}[خطأ] يجب تشغيل هذا السكربت بصلاحيات root (باستخدام sudo)${COLOR_RESET}"
-  echo "الاستخدام: sudo $0"
+  echo -e "${COLOR_RED}[Error] This script must be run as root (using sudo)${COLOR_RESET}"
+  echo "Usage: sudo $0"
   exit 1
 fi
 
 if [[ ! -f "$KEY_PATH" ]]; then
-  echo -e "${COLOR_RED}[خطأ] لم يتم العثور على المفتاح العام في: $KEY_PATH${COLOR_RESET}"
+  echo -e "${COLOR_RED}[Error] GPG public key not found at: $KEY_PATH${COLOR_RESET}"
   exit 1
 fi
 
-echo "جاري إضافة مفتاح ZarchBlack إلى حلقة مفاتيح pacman..."
+echo "Adding ZarchBlack key to pacman keyring..."
 pacman-key --add "$KEY_PATH"
 
-echo "جاري التوقيع والتفويض للمفتاح..."
+echo "Locally signing and trusting the key..."
 pacman-key --lsign-key "$KEY_EMAIL"
 
-echo -e "${COLOR_CYAN}[نجاح] تم إضافة وتفويض المفتاح بنجاح! يمكن لـ pacman الآن التحقق من تواقيع حزم ZarchBlack.${COLOR_RESET}"
+echo -e "${COLOR_CYAN}[Success] GPG key added and trusted successfully! Pacman can now verify ZarchBlack packages.${COLOR_RESET}"
