@@ -3,7 +3,8 @@
 Welcome to the official package repository and ISO build source for **ZarchBlack OS**, the ultimate Arch-based distribution designed for penetration testing, development, and a beautiful KDE Plasma experience.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ZarchBlack/zarchblack-iso/main/screenshot.png" alt="ZarchBlack Desktop" width="800">
+<img width="1920" height="1080" alt="screenshot" src="https://github.com/user-attachments/assets/201974d4-736d-45e2-bb3d-9f55098bcd81" />
+
 </p>
 
 ## 🚀 Download ZarchBlack OS
