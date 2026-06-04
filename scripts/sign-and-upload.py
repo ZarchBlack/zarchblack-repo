@@ -152,11 +152,16 @@ def main():
         
         if filename in remote_assets:
             asset_id, remote_size = remote_assets[filename]
-            if local_size == remote_size:
+            # Always upload signature files and database index files to avoid mismatching cached signatures
+            is_metadata_or_sig = filename.endswith(".sig") or filename.startswith("zarchblack-repo.")
+            if local_size == remote_size and not is_metadata_or_sig:
                 print(f"Skipping {filename} (Already uploaded and size matches: {local_size} bytes)")
                 continue
             else:
-                print(f"Size mismatch for {filename} (Local: {local_size}, Remote: {remote_size}). Replacing...")
+                if is_metadata_or_sig:
+                    print(f"Force-replacing {filename} (Signature/Metadata index)...")
+                else:
+                    print(f"Size mismatch for {filename} (Local: {local_size}, Remote: {remote_size}). Replacing...")
                 delete_release_asset(asset_id, filename)
                 
         upload_release_asset(filepath)
