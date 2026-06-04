@@ -59,7 +59,7 @@ def make_request(url, method="GET", headers=None, data=None):
         raise e
 
 def get_release_assets():
-    url = f"https://api.github.com/repos/{OWNER}/{REPO}/releases/{RELEASE_ID}/assets"
+    url = f"https://api.github.com/repos/{OWNER}/{REPO}/releases/{RELEASE_ID}/assets?per_page=100"
     _, body = make_request(url)
     assets = json.loads(body.decode())
     return {asset["name"]: (asset["id"], asset["size"]) for asset in assets}

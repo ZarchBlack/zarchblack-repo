@@ -14,7 +14,15 @@ source=()
 sha256sums=()
 
 package() {
+  # Copy ZeroDark SDDM theme from staged directory
   mkdir -p "${pkgdir}/usr/share/sddm/themes/ZeroDark"
+  if [ -d "${startdir}/ZeroDark" ]; then
+    cp -r "${startdir}/ZeroDark/." "${pkgdir}/usr/share/sddm/themes/ZeroDark/"
+  else
+    # Fallback to absolute path
+    cp -r /home/zarch/zarchblack_iso/iso/airootfs/usr/share/sddm/themes/ZeroDark/. "${pkgdir}/usr/share/sddm/themes/ZeroDark/"
+  fi
+  
   mkdir -p "${pkgdir}/usr/share/doc/zarchblack-sddm-theme"
   echo "ZarchBlack SDDM Theme ${pkgver}" > "${pkgdir}/usr/share/doc/zarchblack-sddm-theme/README"
 }

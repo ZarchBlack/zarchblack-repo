@@ -13,9 +13,15 @@ source=()
 sha256sums=()
 
 package() {
-  # Wallpapers are installed via the ISO build process
-  # This package is a metapackage for dependency tracking
+  # Copy wallpapers from staged wallpapers directory
+  mkdir -p "${pkgdir}/usr/share/wallpapers"
+  if [ -d "${startdir}/wallpapers" ]; then
+    cp -r "${startdir}/wallpapers/." "${pkgdir}/usr/share/wallpapers/"
+  else
+    # Fallback to absolute path
+    cp -r /home/zarch/zarchblack_iso/iso/airootfs/usr/share/wallpapers/. "${pkgdir}/usr/share/wallpapers/"
+  fi
+  
   mkdir -p "${pkgdir}/usr/share/doc/zarchblack-wallpapers"
   echo "ZarchBlack Wallpapers ${pkgver}" > "${pkgdir}/usr/share/doc/zarchblack-wallpapers/README"
-  echo "Collection: ZarchBlack brand wallpapers are included in the ISO at /usr/share/wallpapers/" >> "${pkgdir}/usr/share/doc/zarchblack-wallpapers/README"
 }

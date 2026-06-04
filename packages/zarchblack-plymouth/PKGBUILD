@@ -14,7 +14,15 @@ source=()
 sha256sums=()
 
 package() {
+  # Copy zarchblack Plymouth theme from staged directory
   mkdir -p "${pkgdir}/usr/share/plymouth/themes/zarchblack"
+  if [ -d "${startdir}/zarchblack" ]; then
+    cp -r "${startdir}/zarchblack/." "${pkgdir}/usr/share/plymouth/themes/zarchblack/"
+  else
+    # Fallback to absolute path
+    cp -r /home/zarch/zarchblack_iso/iso/airootfs/usr/share/plymouth/themes/zarchblack/. "${pkgdir}/usr/share/plymouth/themes/zarchblack/"
+  fi
+  
   mkdir -p "${pkgdir}/usr/share/doc/zarchblack-plymouth"
   echo "ZarchBlack Plymouth Theme ${pkgver}" > "${pkgdir}/usr/share/doc/zarchblack-plymouth/README"
 }

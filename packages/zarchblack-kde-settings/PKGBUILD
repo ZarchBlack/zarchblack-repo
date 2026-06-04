@@ -14,6 +14,19 @@ source=()
 sha256sums=()
 
 package() {
+  # Copy KDE specific configurations to /etc/skel/.config
+  mkdir -p "${pkgdir}/etc/skel/.config"
+  if [ -d "${startdir}/kde-config" ]; then
+    cp -r "${startdir}/kde-config/." "${pkgdir}/etc/skel/.config/"
+  else
+    # Fallback to copy specific files from absolute path
+    for f in kdeglobals kwinrc kglobalshortcutsrc kscreenlockerrc kcminputrc ktimezonedrc kactivitymanagerdrc kactivitymanagerd-statsrc kwinoutputconfig.json; do
+      if [ -f "/home/zarch/zarchblack_iso/iso/airootfs/etc/skel/.config/$f" ]; then
+        cp "/home/zarch/zarchblack_iso/iso/airootfs/etc/skel/.config/$f" "${pkgdir}/etc/skel/.config/"
+      fi
+    done
+  fi
+  
   mkdir -p "${pkgdir}/usr/share/doc/zarchblack-kde-settings"
   echo "ZarchBlack KDE Settings ${pkgver}" > "${pkgdir}/usr/share/doc/zarchblack-kde-settings/README"
 }

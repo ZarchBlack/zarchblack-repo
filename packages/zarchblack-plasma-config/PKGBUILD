@@ -14,9 +14,15 @@ source=()
 sha256sums=()
 
 package() {
-  mkdir -p "${pkgdir}/etc/skel/.config"
-  mkdir -p "${pkgdir}/etc/skel/.local/share/kwin"
-  mkdir -p "${pkgdir}/usr/share/zarchblack/plasma"
+  # Copy SKEL configs from staged skel directory
+  mkdir -p "${pkgdir}/etc/skel"
+  if [ -d "${startdir}/skel" ]; then
+    cp -r "${startdir}/skel/." "${pkgdir}/etc/skel/"
+  else
+    # Fallback to absolute path if startdir/skel doesn't exist
+    cp -r /home/zarch/zarchblack_iso/iso/airootfs/etc/skel/. "${pkgdir}/etc/skel/"
+  fi
   
+  mkdir -p "${pkgdir}/usr/share/zarchblack/plasma"
   echo "ZarchBlack Plasma Config ${pkgver}" > "${pkgdir}/usr/share/zarchblack/plasma/version"
 }
