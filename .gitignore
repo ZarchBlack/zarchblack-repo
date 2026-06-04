@@ -11,7 +11,7 @@ out/
 # build and repo output directories (never commit binaries here)
 build/
 repo/
-
+x86_64/
 
 # icon themes (downloaded externally, not source code)
 themes/icons/Magna-Dark-Icons/
