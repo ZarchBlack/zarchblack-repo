@@ -1,21 +1,79 @@
 # ZarchBlack Official Repository 🌌
 
-Welcome to the official package repository and ISO build source for **ZarchBlack OS**, the ultimate Arch-based distribution designed for penetration testing, development, and a beautiful KDE Plasma experience.
-
 <p align="center">
-<img width="1920" height="1080" alt="screenshot" src="https://github.com/user-attachments/assets/201974d4-736d-45e2-bb3d-9f55098bcd81" />
-
+  <img src="screenshots/zheader.svg" alt="ZarchBlack Banner" width="100%" />
 </p>
 
-## 🚀 Download ZarchBlack OS
-Get the latest live ISO image to install or test ZarchBlack.
+<p align="center">
+  <a href="https://huggingface.co/datasets/zarchblack/zarchblack-releases/tree/main"><img src="https://img.shields.io/badge/Download_ISO-Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=000" alt="Download ISO" /></a>
+  <a href="https://github.com/ZarchBlack"><img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+  <a href="https://github.com/ZarchBlack"><img src="https://img.shields.io/badge/Discord-Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+  <a href="https://github.com/ZarchBlack"><img src="https://img.shields.io/badge/Telegram-Channel-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" /></a>
+</p>
 
-[![Download ISO from Hugging Face](https://img.shields.io/badge/Download_ISO-Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/datasets/zarchblack/zarchblack-releases/tree/main)
+---
+
+## 🌟 About ZarchBlack
+
+**ZarchBlack** is a modern, cutting-edge Linux distribution based on **Arch Linux**, engineered specifically for developers, programmers, cybersecurity specialists, ethical hackers, system administrators, and advanced Linux enthusiasts.
+
+More than just a standard Arch Linux spin, ZarchBlack delivers a fully optimized, secure, and visually stunning operating system. It comes equipped with a custom-crafted **KDE Plasma 6** desktop environment running natively on **Wayland** (released in 2026) that strikes a perfect balance between power, beauty, and security.
+
+### 🖼️ Preview ZarchBlack
+<p align="center">
+  <img src="screenshot.png" alt="ZarchBlack Desktop Preview" width="100%" />
+</p>
+
+---
+
+## 🎨 The Passion & Story Behind ZarchBlack
+
+ZarchBlack is developed and maintained by **Zero7x**, a passionate Moroccan developer. Zero7x did not formally study programming or software development; instead, this distribution is the product of pure self-learning, curiosity, and a deep-seated passion for Linux—especially Arch Linux.
+
+Building ZarchBlack required months of intense, daily effort, troubleshooting countless compilation errors, refining configurations, and repeatedly rebuilding the ISO to get everything perfect. Zero7x drew inspiration from the most popular Linux distributions, combining their finest ideas and features into a single, cohesive operating system. Every detail, from the massive, high-quality, hand-selected wallpaper collection to the stunning themes and icons, was crafted with care to offer a desktop experience never seen in any other 2026 distribution.
+
+Rather than just testing on virtual machines, ZarchBlack was rigorously tested and verified directly on **physical hardware and real storage drives** to guarantee maximum performance, stability, and reliability on bare metal.
+
+---
+
+## 🛠️ Specialized Custom Utilities
+
+ZarchBlack features three unique, built-in applications designed to simplify package management, system maintenance, and security workflows:
+
+### 1. `zarch-hacking` 🥷
+* **BlackArch Integration:** Instant access to the massive BlackArch security repository containing over 2000+ security and penetration testing tools.
+* **Categorized Security Tools:** Easily search and install security software grouped logically by field (Reconnaissance, Web Apps, Wireless, Forensic, Exploitation, etc.).
+* **Isolated Testing:** Sandbox testing environments to evaluate programs securely without altering your host system.
+
+<p align="center">
+  <img src="screenshots/terminal.svg" alt="zarch-hacking CLI Preview" width="100%" />
+</p>
+
+### 2. `zarchguard` 🛡️
+* **Smart System Updates:** Perform safe rolling-release updates with automated pre-checks.
+* **Deep Clean:** Clean pacman package cache, system logs, old configurations, and orphaned files to keep your system fast and lean.
+* **Maintenance & Repair:** Automated diagnostics, troubleshooting tools, and quick bug-fixing scripts to repair system and theme configurations.
+
+### 3. `zpackagemanager` 📦
+* **Intuitive Package Management:** A powerful command-line interface to install, remove, and manage packages.
+* **Repository Control:** Seamlessly enable, disable, and configure official and custom repositories.
+* **Dependency Resolver:** Smoothly handles complex AUR and custom repository package dependencies.
+
+---
+
+## 🚀 Key Features
+
+* **Native Wayland Desktop:** Runs the modern KDE Plasma 6 desktop environment on Wayland by default (with X11 fallback available).
+* **Power & Performance:** Integrates the complete set of **Cachyos** repositories, featuring CPU-optimized kernels, performance tweaks, and improved responsiveness.
+* **Security Out of the Box:** Pre-configured firewalls (`firewalld`, `ufw`) and application sandboxing (`firejail`).
+* **Stunning Visuals:** Sleek dark-mode styling utilizing the **Darkly** theme, **Layan** window decorations, **Catppuccin Mocha Lavender** color schemes, and beautiful custom icons.
+* **Massive Wallpaper Collection:** Hundreds of carefully curated, beautiful wallpapers matching every taste.
 
 ---
 
 ## 📦 How to Add This Repository to Any Arch System
-If you are already running Arch Linux or any Arch-based distro, you can install ZarchBlack's exclusive packages (like `antigravity`, `zarchguard`, `zpackagemanager`, `zarch-hacking`, and custom icons/themes) by adding this repository to your system.
+
+If you are already running Arch Linux or any Arch-based distribution, you can install ZarchBlack's exclusive packages by adding our repository to your system.
 
 ### 1. Edit your `pacman.conf`
 Open `/etc/pacman.conf` with root privileges:
@@ -25,7 +83,6 @@ sudo nano /etc/pacman.conf
 
 ### 2. Append the ZarchBlack Repo
 Scroll to the bottom of the file and add the following lines:
-
 ```ini
 [zarchblack-repo]
 SigLevel = Required DatabaseOptional
@@ -33,23 +90,15 @@ Server = https://github.com/ZarchBlack/zarchblack-repo/releases/download/repo
 ```
 
 ### 3. Sync and Install
-Update your databases and install any package:
+Update your database index and install any of our custom utilities:
 ```bash
 sudo pacman -Sy
-sudo pacman -S zarchblack-hacking antigravity
+sudo pacman -S zarch-hacking zarchguard zpackagemanager
 ```
 
 ---
 
 ## 🛠️ For Developers & Contributors
-
-### Overview
-ZarchBlack is a custom Arch Linux live ISO featuring:
-- **Base:** Arch Linux (rolling release)
-- **Desktop:** KDE Plasma 6 on Wayland (X11 fallback available)
-- **Installer:** Calamares graphical installer
-- **Theming:** Darkly/Catppuccin Mocha Lavender theme with Layan decorations
-- **Security:** Firewalld, UFW, Firejail preconfigured
 
 ### Project Structure
 ```text
@@ -65,22 +114,28 @@ zarchblack_iso/
 ```
 
 ### Building the ISO Locally
+To compile the ISO locally from source, run:
 ```bash
 git clone https://github.com/ZarchBlack/zarchblack-repo.git
 cd zarchblack-repo
-sudo mkarchiso -v -w ./work -o ./out ./iso
+sudo ./scripts/build-iso.sh clean
 ```
 
-### Custom Packages
-- `zarchguard` - Security hardening
-- `zarch-hacking` - Security tools manager
-- `zpackagemanager` - Package management utility
-- `zarchblack-theme` - Complete desktop theme
-- `zarchblack-wallpapers` - Wallpaper collection
-- `zarchblack-branding` - OS identity files
+---
 
-## License
-This project is licensed under GPLv3.
+## 📅 Releases & Versioning
+
+### **v1.0 (Rolling Release)**
+* **Release Date:** May 30, 2026
+* **Notes:** Initial official public release. Includes pre-configured KDE Plasma 6 Wayland desktop, Cachyos & BlackArch repository integration, and the official release of `zarch-hacking`, `zarchguard`, and `zpackagemanager`.
 
 ---
-*Maintained by [ZarchBlack](https://github.com/ZarchBlack).*
+
+## 🌐 Community & Support
+* **GitHub Repository:** [ZarchBlack GitHub](https://github.com/ZarchBlack)
+* **Discord Server:** [Join our Discord](https://github.com/ZarchBlack)
+* **Telegram Channel:** [Join our Telegram](https://github.com/ZarchBlack)
+* **Documentation Wiki:** [Read the Wiki](https://github.com/ZarchBlack)
+
+---
+*ZarchBlack is licensed under the GPLv3 License. Maintained with passion by **Zero7x** and the open-source community.*
