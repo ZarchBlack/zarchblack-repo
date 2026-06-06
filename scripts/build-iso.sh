@@ -23,6 +23,7 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
+
 # Clean build if requested
 if [[ "${1:-}" == "clean" ]]; then
   echo "Cleaning previous build artifacts..."

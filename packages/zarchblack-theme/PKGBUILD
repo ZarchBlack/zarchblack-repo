@@ -10,16 +10,15 @@ url="https://github.com/ZarchBlack/zarchblack"
 license=('GPL3')
 depends=(
   'plasma-desktop' 'kwin' 'qt6-base' 'kvantum'
+  'darkly' 'layan' 'catppuccin-mocha-lavender'
 )
 optdepends=(
   'zarchblack-wallpapers: ZarchBlack wallpaper collection'
   'zarchblack-icons: ZarchBlack icon themes'
   'zarchblack-sddm-theme: SDDM login theme'
   'zarchblack-plymouth: Plymouth boot splash'
-  'darkly: Darkly window decoration'
-  'layan: Layan theme'
-  'catppuccin-mocha-lavender: Catppuccin mocha lavender color scheme'
 )
+
 install=zarchblack-theme.install
 source=()
 sha256sums=()

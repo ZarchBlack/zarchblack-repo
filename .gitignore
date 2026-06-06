@@ -60,6 +60,13 @@ iso/airootfs/usr/lib/
 iso/airootfs/usr/bin/
 iso/airootfs/var/
 
+# Welcome Center source — tracked in git (ZarchBlack custom app)
+!iso/airootfs/usr/lib/zarchblack-welcome/
+!iso/airootfs/usr/lib/zarchblack-welcome/**
+!iso/airootfs/usr/bin/zarchblack-welcome
+!iso/airootfs/usr/share/applications/zarchblack-welcome.desktop
+!iso/airootfs/usr/share/icons/hicolor/256x256/apps/zarchblack-welcome.png
+
 # airootfs icons — external icon themes duplicated from themes/icons/
 iso/airootfs/usr/share/icons/Magna-Dark-Icons/
 iso/airootfs/usr/share/icons/Magna-Glassy-Dark-Icons/
