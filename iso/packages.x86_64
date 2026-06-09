@@ -504,7 +504,7 @@ plasma-disks
 plasma-keyboard
 plasma-sdk
 plasma-x11-session
-plasma-welcome
+
 plasma-activities
 plasma-activities-stats
 plasma-firewall

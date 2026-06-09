@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Install ZarchBlack
-Exec=sudo -E calamares
-Icon=calamares
-Terminal=false
