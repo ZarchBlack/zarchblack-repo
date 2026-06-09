@@ -24,6 +24,7 @@ file_permissions=(
   ["/usr/local/bin/livecd-sound"]="0:0:755"
   ["/usr/local/bin/fix-btrfs-boot.sh"]="0:0:755"
   ["/root/customize_airootfs.sh"]="0:0:755"
+  ["/usr/bin/zarchblack-welcome"]="0:0:755"
   ["/etc/sddm.conf.d/autologin.conf"]="0:0:644"
   ["/usr/share/plasma/plasmoids/com.github.exequtic.apdatifier/contents/tools/sh/init"]="0:0:755"
   ["/usr/share/plasma/plasmoids/com.github.exequtic.apdatifier/contents/tools/sh/management"]="0:0:755"

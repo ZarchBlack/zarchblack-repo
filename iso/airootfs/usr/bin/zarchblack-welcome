@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# ZarchBlack Welcome Center launcher
-exec python3 /usr/lib/zarchblack-welcome/main.py "$@"

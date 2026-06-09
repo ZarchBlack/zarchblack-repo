@@ -1,0 +1,414 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# ZarchBlack Welcome Center - First-run welcome screen
+
+pkgname=zarchblack-welcome
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="ZarchBlack Welcome Center - First-run welcome screen with installer and tool launcher"
+arch=('any')
+url="https://github.com/ZarchBlack/zarchblack-repo"
+license=('GPL3')
+depends=('python' 'python-pyqt6')
+install=zarchblack-welcome.install
+source=()
+sha256sums=()
+
+package() {
+  # ── Directories ──────────────────────────────────────────────────────────
+  install -dm755 "${pkgdir}/usr/bin"
+  install -dm755 "${pkgdir}/usr/lib/zarchblack-welcome/assets"
+  install -dm755 "${pkgdir}/usr/share/applications"
+  install -dm755 "${pkgdir}/usr/share/icons/hicolor/256x256/apps"
+  install -dm755 "${pkgdir}/usr/share/icons/hicolor/128x128/apps"
+  install -dm755 "${pkgdir}/usr/share/icons/hicolor/64x64/apps"
+
+  # ── Launcher (executable) ─────────────────────────────────────────────────
+  cat > "${pkgdir}/usr/bin/zarchblack-welcome" << 'BINEOF'
+#!/usr/bin/env bash
+exec python3 /usr/lib/zarchblack-welcome/main.py "$@"
+BINEOF
+  chmod 755 "${pkgdir}/usr/bin/zarchblack-welcome"
+
+  # ── Main Python application ───────────────────────────────────────────────
+  cat > "${pkgdir}/usr/lib/zarchblack-welcome/main.py" << 'PYEOF'
+#!/usr/bin/env python3
+"""
+ZarchBlack Welcome Center
+© 2026 ZarchBlack Project — https://github.com/ZarchBlack
+"""
+
+import sys
+import subprocess
+from pathlib import Path
+
+from PyQt6.QtWidgets import (
+    QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
+    QPushButton, QLabel, QFrame, QScrollArea, QCheckBox,
+)
+from PyQt6.QtCore import Qt, QThread, pyqtSignal
+from PyQt6.QtGui import QPixmap, QFont, QFontDatabase
+
+BASE_DIR   = Path("/usr/lib/zarchblack-welcome")
+ASSETS_DIR = BASE_DIR / "assets"
+LOGO_PATH  = ASSETS_DIR / "logo.png"
+
+AUTOSTART_FILE = Path.home() / ".config/autostart/zarchblack-welcome.desktop"
+AUTOSTART_CONTENT = """\
+[Desktop Entry]
+Type=Application
+Name=ZarchBlack Welcome Center
+Exec=zarchblack-welcome
+Icon=zarchblack-welcome
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+"""
+
+THEME = """
+QWidget {
+    background-color: #0d0d14;
+    color: #e2e8f0;
+    font-family: "Inter", "Segoe UI", "Ubuntu", sans-serif;
+    font-size: 13px;
+}
+QMainWindow { background-color: #0d0d14; }
+QScrollArea { background: transparent; border: none; }
+QScrollBar:vertical {
+    background: #12121e; width: 6px; border-radius: 3px; margin: 0;
+}
+QScrollBar::handle:vertical {
+    background: #2a2a45; border-radius: 3px; min-height: 24px;
+}
+QScrollBar::handle:vertical:hover { background: #7c3aed; }
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }
+
+#InstallBtn {
+    background: qlineargradient(x1:0,y1:0,x2:1,y2:0,stop:0 #7c3aed,stop:1 #b060ff);
+    color: #ffffff; border: none; border-radius: 12px;
+    font-size: 16px; font-weight: 700; padding: 14px 48px;
+}
+#InstallBtn:hover {
+    background: qlineargradient(x1:0,y1:0,x2:1,y2:0,stop:0 #8b47f5,stop:1 #c070ff);
+}
+#InstallBtn:pressed {
+    background: qlineargradient(x1:0,y1:0,x2:1,y2:0,stop:0 #6d28d9,stop:1 #9050ef);
+}
+
+#AppBtn {
+    background-color: #12121e; color: #e2e8f0;
+    border: 1.5px solid #2a2a45; border-radius: 14px;
+    font-size: 13px; font-weight: 600; padding: 18px 12px; text-align: center;
+}
+#AppBtn:hover { background-color: #1a1a2e; border-color: #7c3aed; color: #b060ff; }
+#AppBtn:pressed { background-color: #16162a; border-color: #b060ff; }
+
+#SocialBtn {
+    background-color: #12121e; color: #94a3b8;
+    border: 1px solid #1a1a2e; border-radius: 10px;
+    font-size: 13px; padding: 10px 24px;
+}
+#SocialBtn:hover { background-color: #1a1a2e; color: #b060ff; border-color: #2a2a45; }
+
+#Divider { background-color: #1a1a2e; max-height: 1px; min-height: 1px; }
+
+QCheckBox { color: #475569; font-size: 12px; spacing: 8px; }
+QCheckBox::indicator {
+    width: 16px; height: 16px; border-radius: 4px;
+    border: 1.5px solid #2a2a45; background: #12121e;
+}
+QCheckBox::indicator:checked { background-color: #7c3aed; border-color: #7c3aed; }
+QCheckBox::indicator:hover  { border-color: #7c3aed; }
+
+#CloseBtn {
+    background: transparent; color: #475569;
+    border: 1px solid #2a2a45; border-radius: 8px; font-size: 13px; padding: 8px 24px;
+}
+#CloseBtn:hover { background: #12121e; color: #e2e8f0; border-color: #475569; }
+"""
+
+
+class LaunchThread(QThread):
+    error_signal = pyqtSignal(str)
+    def __init__(self, cmd):
+        super().__init__()
+        self.cmd = cmd
+    def run(self):
+        try:
+            subprocess.Popen(self.cmd, shell=True,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        except Exception as e:
+            self.error_signal.emit(str(e))
+
+
+class FeatureCard(QFrame):
+    def __init__(self, icon, title, desc, parent=None):
+        super().__init__(parent)
+        self.setFixedHeight(82)
+        self.setStyleSheet("""
+            QFrame { background:#12121e; border:1px solid #1a1a2e; border-radius:12px; }
+            QFrame:hover { border-color:#2a2a45; background:#16162a; }
+        """)
+        lay = QHBoxLayout(self)
+        lay.setContentsMargins(14, 10, 14, 10)
+        lay.setSpacing(12)
+
+        ic = QLabel(icon)
+        ic.setFont(QFont("Segoe UI Emoji", 20))
+        ic.setFixedWidth(32)
+        ic.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        lay.addWidget(ic)
+
+        vl = QVBoxLayout(); vl.setSpacing(2)
+        t = QLabel(title)
+        t.setStyleSheet("color:#e2e8f0;font-weight:700;font-size:13px;background:transparent;border:none;")
+        vl.addWidget(t)
+        d = QLabel(desc)
+        d.setStyleSheet("color:#94a3b8;font-size:12px;background:transparent;border:none;")
+        d.setWordWrap(True)
+        vl.addWidget(d)
+        lay.addLayout(vl)
+
+
+class WelcomeWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Welcome to ZarchBlack")
+        self.setMinimumSize(860, 680)
+        self.resize(920, 720)
+        self._threads = []
+        self._build_ui()
+        self._center()
+
+    def _build_ui(self):
+        root = QWidget()
+        self.setCentralWidget(root)
+        outer = QVBoxLayout(root)
+        outer.setContentsMargins(0,0,0,0)
+        outer.setSpacing(0)
+
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setFrameShape(QFrame.Shape.NoFrame)
+        outer.addWidget(scroll)
+
+        c = QWidget(); scroll.setWidget(c)
+        ml = QVBoxLayout(c)
+        ml.setContentsMargins(48,36,48,32)
+        ml.setSpacing(0)
+
+        ml.addLayout(self._header());      ml.addSpacing(26)
+        ml.addWidget(self._divider());     ml.addSpacing(22)
+        ml.addWidget(self._welcome());     ml.addSpacing(26)
+        ml.addWidget(self._sec("✨   Features")); ml.addSpacing(10)
+        ml.addLayout(self._features());    ml.addSpacing(30)
+        ml.addWidget(self._divider());     ml.addSpacing(22)
+        ml.addWidget(self._install());     ml.addSpacing(30)
+        ml.addWidget(self._sec("🛠   ZarchBlack Tools")); ml.addSpacing(10)
+        ml.addLayout(self._apps());        ml.addSpacing(30)
+        ml.addWidget(self._divider());     ml.addSpacing(18)
+        ml.addWidget(self._sec("🌐   Community & Links")); ml.addSpacing(10)
+        ml.addLayout(self._social());      ml.addSpacing(28)
+        ml.addStretch()
+        ml.addLayout(self._bottom())
+
+    def _header(self):
+        lay = QHBoxLayout(); lay.setSpacing(18)
+        lbl = QLabel()
+        if LOGO_PATH.exists():
+            px = QPixmap(str(LOGO_PATH)).scaled(
+                86,86, Qt.AspectRatioMode.KeepAspectRatio,
+                Qt.TransformationMode.SmoothTransformation)
+            lbl.setPixmap(px)
+        lbl.setFixedSize(86,86)
+        lay.addWidget(lbl, alignment=Qt.AlignmentFlag.AlignVCenter)
+
+        vl = QVBoxLayout(); vl.setSpacing(5)
+        t = QLabel("ZarchBlack")
+        t.setStyleSheet("font-size:42px;font-weight:800;color:#b060ff;background:transparent;letter-spacing:1px;")
+        vl.addWidget(t)
+        s = QLabel("A modern Arch Linux-based distribution for professionals")
+        s.setStyleSheet("font-size:13px;color:#94a3b8;background:transparent;")
+        vl.addWidget(s)
+        v = QLabel("Version 1.0.0  •  Developed by Zero7x")
+        v.setStyleSheet("font-size:11px;color:#475569;background:transparent;")
+        vl.addWidget(v)
+        lay.addLayout(vl); lay.addStretch()
+        return lay
+
+    def _welcome(self):
+        lbl = QLabel(
+            "Welcome to <span style='color:#b060ff;font-weight:700;'>ZarchBlack Linux</span>!<br><br>"
+            "ZarchBlack is a modern distribution built on <b>Arch Linux</b>, designed for "
+            "developers, cybersecurity professionals, ethical hackers, and system administrators.<br><br>"
+            "It combines the power of Arch Linux with a beautiful <b>KDE Plasma</b> desktop, "
+            "pre-configured with a full suite of tools ready out of the box."
+        )
+        lbl.setWordWrap(True)
+        lbl.setTextFormat(Qt.TextFormat.RichText)
+        lbl.setStyleSheet(
+            "font-size:13px;color:#cbd5e1;background-color:#12121e;"
+            "border:1px solid #1a1a2e;border-radius:12px;padding:18px 22px;"
+        )
+        return lbl
+
+    def _features(self):
+        items = [
+            ("🖥","KDE Plasma Desktop","Modern ZarchBlack-themed desktop"),
+            ("🔒","Cybersecurity Tools","BlackArch tools integrated and ready"),
+            ("⚡","High Performance","Optimized kernel for responsiveness"),
+            ("📦","Package Management","Pacman + AUR + Chaotic-AUR + Flatpak"),
+            ("🎨","Full Customization","Darkly / Kvantum / Catppuccin Mocha"),
+            ("🔧","Developer Ready","Pre-installed dev tools and environments"),
+        ]
+        gl = QVBoxLayout(); gl.setSpacing(8)
+        r1 = QHBoxLayout(); r1.setSpacing(8)
+        r2 = QHBoxLayout(); r2.setSpacing(8)
+        for i,(ic,t,d) in enumerate(items):
+            (r1 if i<3 else r2).addWidget(FeatureCard(ic,t,d))
+        gl.addLayout(r1); gl.addLayout(r2)
+        return gl
+
+    def _install(self):
+        f = QFrame()
+        f.setStyleSheet("""
+            QFrame { background:qlineargradient(x1:0,y1:0,x2:1,y2:1,stop:0 #0f0f1a,stop:1 #14102a);
+                     border:1px solid #2a2a45; border-radius:16px; }
+        """)
+        lay = QVBoxLayout(f); lay.setContentsMargins(32,22,32,22); lay.setSpacing(10)
+
+        t = QLabel("🚀   Install ZarchBlack")
+        t.setStyleSheet("font-size:17px;font-weight:700;color:#e2e8f0;background:transparent;")
+        t.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        lay.addWidget(t)
+
+        d = QLabel("Click the button below to install ZarchBlack on your hard drive using the Calamares installer.")
+        d.setWordWrap(True)
+        d.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        d.setStyleSheet("font-size:13px;color:#94a3b8;background:transparent;")
+        lay.addWidget(d)
+        lay.addSpacing(6)
+
+        row = QHBoxLayout(); row.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        btn = QPushButton("   Install ZarchBlack   ")
+        btn.setObjectName("InstallBtn")
+        btn.setFixedHeight(52)
+        btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        btn.clicked.connect(self._calamares)
+        row.addWidget(btn)
+        lay.addLayout(row)
+        return f
+
+    def _apps(self):
+        items = [
+            ("📦","ZPackageManager","GUI package management\nfor Arch Linux",        "zpackagemanager"),
+            ("🔓","Zarch-Hacking",  "BlackArch tools manager\nfor penetration testing","zarch-hacking"),
+            ("🛡","ZArchGuard",     "System protection\nand security monitoring",      "zarchguard"),
+        ]
+        lay = QHBoxLayout(); lay.setSpacing(12)
+        for ic,nm,ds,cmd in items:
+            b = QPushButton(f"{ic}\n{nm}\n{ds}")
+            b.setObjectName("AppBtn"); b.setFixedHeight(108)
+            b.setCursor(Qt.CursorShape.PointingHandCursor)
+            b.clicked.connect(lambda _,c=cmd: self._launch(c))
+            lay.addWidget(b)
+        return lay
+
+    def _social(self):
+        links = [
+            ("  GitHub",   "https://github.com/ZarchBlack/ZARCH"),
+            ("  Discord",  "https://discord.gg/YgVtrsCx"),
+            ("  Telegram", "https://t.me/zarchblack"),
+        ]
+        lay = QHBoxLayout(); lay.setSpacing(10)
+        lay.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        for lbl,url in links:
+            b = QPushButton(lbl); b.setObjectName("SocialBtn")
+            b.setFixedHeight(40); b.setCursor(Qt.CursorShape.PointingHandCursor)
+            b.clicked.connect(lambda _,u=url: subprocess.Popen(["xdg-open",u],
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL))
+            lay.addWidget(b)
+        return lay
+
+    def _bottom(self):
+        lay = QHBoxLayout()
+        self.cb = QCheckBox("Show this window on startup")
+        self.cb.setChecked(AUTOSTART_FILE.exists())
+        self.cb.stateChanged.connect(self._toggle_autostart)
+        lay.addWidget(self.cb); lay.addStretch()
+        cb = QPushButton("Close"); cb.setObjectName("CloseBtn")
+        cb.setFixedSize(100,36); cb.setCursor(Qt.CursorShape.PointingHandCursor)
+        cb.clicked.connect(self.close); lay.addWidget(cb)
+        return lay
+
+    def _divider(self):
+        d = QFrame(); d.setObjectName("Divider")
+        d.setFrameShape(QFrame.Shape.HLine); return d
+
+    def _sec(self, text):
+        l = QLabel(text)
+        l.setStyleSheet("font-size:14px;font-weight:700;color:#b060ff;background:transparent;")
+        return l
+
+    def _center(self):
+        g = QApplication.primaryScreen().geometry()
+        self.move((g.width()-self.width())//2, (g.height()-self.height())//2)
+
+    def _calamares(self):
+        t = LaunchThread("pkexec calamares 2>/dev/null || sudo calamares 2>/dev/null || calamares")
+        self._threads.append(t); t.start()
+
+    def _launch(self, cmd):
+        t = LaunchThread(cmd)
+        self._threads.append(t); t.start()
+
+    def _toggle_autostart(self, state):
+        if state == 2:
+            AUTOSTART_FILE.parent.mkdir(parents=True, exist_ok=True)
+            AUTOSTART_FILE.write_text(AUTOSTART_CONTENT)
+        elif AUTOSTART_FILE.exists():
+            AUTOSTART_FILE.unlink()
+
+
+def main():
+    app = QApplication(sys.argv)
+    app.setApplicationName("ZarchBlack Welcome")
+    app.setOrganizationName("ZarchBlack")
+    app.setStyleSheet(THEME)
+    QFontDatabase.addApplicationFont("/usr/share/fonts/inter/Inter-Regular.otf")
+    QFontDatabase.addApplicationFont("/usr/share/fonts/inter/Inter-Bold.otf")
+    win = WelcomeWindow()
+    win.show()
+    sys.exit(app.exec())
+
+
+if __name__ == "__main__":
+    main()
+PYEOF
+  chmod 644 "${pkgdir}/usr/lib/zarchblack-welcome/main.py"
+
+  # ── Desktop entry ─────────────────────────────────────────────────────────
+  cat > "${pkgdir}/usr/share/applications/zarchblack-welcome.desktop" << 'DEOF'
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ZarchBlack Welcome Center
+GenericName=Welcome Screen
+Comment=Welcome to ZarchBlack Linux
+Exec=zarchblack-welcome
+Icon=zarchblack-welcome
+Terminal=false
+Categories=System;
+Keywords=welcome;zarchblack;install;
+StartupNotify=false
+DEOF
+  chmod 644 "${pkgdir}/usr/share/applications/zarchblack-welcome.desktop"
+
+  # ── Icons (copy from calamares branding) ──────────────────────────────────
+  local logo_src="/etc/calamares/branding/zarchblack/logo.png"
+  if [[ -f "${logo_src}" ]]; then
+    install -Dm644 "${logo_src}" "${pkgdir}/usr/lib/zarchblack-welcome/assets/logo.png"
+    install -Dm644 "${logo_src}" "${pkgdir}/usr/share/icons/hicolor/256x256/apps/zarchblack-welcome.png"
+    install -Dm644 "${logo_src}" "${pkgdir}/usr/share/icons/hicolor/128x128/apps/zarchblack-welcome.png"
+    install -Dm644 "${logo_src}" "${pkgdir}/usr/share/icons/hicolor/64x64/apps/zarchblack-welcome.png"
+  fi
+}

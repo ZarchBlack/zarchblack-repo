@@ -1,0 +1,8 @@
+post_install() {
+  echo "ZarchBlack Welcome Center installed."
+  echo "Run 'zarchblack-welcome' to launch."
+}
+
+post_upgrade() {
+  post_install
+}
