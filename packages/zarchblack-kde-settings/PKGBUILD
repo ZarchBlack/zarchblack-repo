@@ -1,9 +1,14 @@
 # Maintainer: ZarchBlack <https://github.com/ZarchBlack>
 # ZarchBlack KDE Settings - KDE Plasma defaults package
+#
+# NOTE: This package does NOT own files in /etc/skel/.config/ to avoid
+# file conflicts with zarchblack-plasma-config (which already owns them).
+# All KDE config default files live in zarchblack-plasma-config.
+# This package exists as a dependency anchor and for documentation.
 
 pkgname=zarchblack-kde-settings
 pkgver=1.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="ZarchBlack KDE Plasma settings defaults - keyboard, shortcuts, screen lock"
 arch=('any')
 url="https://github.com/ZarchBlack/zarchblack"
@@ -14,19 +19,6 @@ source=()
 sha256sums=()
 
 package() {
-  # Copy KDE specific configurations to /etc/skel/.config
-  mkdir -p "${pkgdir}/etc/skel/.config"
-  if [ -d "${startdir}/kde-config" ]; then
-    cp -r "${startdir}/kde-config/." "${pkgdir}/etc/skel/.config/"
-  else
-    # Fallback to copy specific files from absolute path
-    for f in kdeglobals kwinrc kglobalshortcutsrc kscreenlockerrc kcminputrc ktimezonedrc kactivitymanagerdrc kactivitymanagerd-statsrc kwinoutputconfig.json; do
-      if [ -f "/home/zarch/zarchblack_iso/iso/airootfs/etc/skel/.config/$f" ]; then
-        cp "/home/zarch/zarchblack_iso/iso/airootfs/etc/skel/.config/$f" "${pkgdir}/etc/skel/.config/"
-      fi
-    done
-  fi
-  
   mkdir -p "${pkgdir}/usr/share/doc/zarchblack-kde-settings"
   echo "ZarchBlack KDE Settings ${pkgver}" > "${pkgdir}/usr/share/doc/zarchblack-kde-settings/README"
 }
