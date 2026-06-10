@@ -29,7 +29,7 @@ strings:
     productUrl:          https://github.com/zarchblack
 
 images:
-    productIcon:         "zarchblack-logo.png"
+    productIcon:         "logo.png"
     productLogo:         "logo.png"
     productWallpaper:    "wallpaper.png"
     productWelcome:      "languages.png"
