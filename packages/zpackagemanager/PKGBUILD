@@ -1,27 +1,23 @@
 # Maintainer: ZarchBlack <https://github.com/ZarchBlack>
-# ZPackageManager - ZarchBlack package management utility
+# ZPackageManager - ZarchBlack GUI Package Manager (Rust/Slint)
 
 pkgname=zpackagemanager
-pkgver=0.4.0
+pkgver=0.6.1
 pkgrel=1
-pkgdesc="ZarchBlack Package Manager - GUI utility for managing ZarchBlack packages"
+pkgdesc="ZarchBlack Package Manager — Modern GUI package manager for Arch Linux"
 arch=('x86_64')
-url="https://github.com/ZarchBlack/zarchblack"
-license=('GPL3')
-depends=('python' 'python-pyqt6' 'pacman-contrib')
-install=zpackagemanager.install
-source=()
-sha256sums=()
-
-package() {
-  mkdir -p "${pkgdir}/usr/share/zpackagemanager"
-  mkdir -p "${pkgdir}/usr/bin"
-  
-  cat > "${pkgdir}/usr/bin/zpackagemanager" << 'BINEOF'
-#!/usr/bin/env python3
-print("ZPackageManager 0.4.0 - ZarchBlack Package Management")
-BINEOF
-  chmod +x "${pkgdir}/usr/bin/zpackagemanager"
-  
-  echo "zpackagemanager ${pkgver}" > "${pkgdir}/usr/share/zpackagemanager/version"
-}
+url="https://github.com/ZarchBlack/ZARCH"
+license=('GPL-3.0-or-later')
+depends=(
+    'pacman'
+    'flatpak'
+    'polkit'
+    'hicolor-icon-theme'
+    'libxcb'
+    'qt6-base'
+)
+optdepends=(
+    'chaotic-aur-mirrorlist: recommended AUR source for ZarchBlack'
+)
+provides=('zpackagemanager')
+conflicts=('zpackagemanager-git')
