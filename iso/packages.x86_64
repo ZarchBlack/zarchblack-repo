@@ -305,7 +305,6 @@ nfs-utils
 samba
 lftp
 curl
-visual-studio-code-bin
 wget
 aria2
 httpie
@@ -598,7 +597,6 @@ kio-admin
 kio-extras
 kio-gdrive
 kio-zeroconf
-konversation
 krdc
 krfb
 signon-kwallet-extension
@@ -616,7 +614,6 @@ kfind
 kgpg
 konsole
 ksystemlog
-kwalletmanager
 markdownpart
 partitionmanager
 qalculate-qt
@@ -626,11 +623,8 @@ sweeper
 yakuake
 kclock
 kcron
-kjournald
 koko
-krecorder
 kweather
-isoimagewriter
 francis
 
 # -------------------- Multimedia (KDE-specific) --------------------
@@ -639,9 +633,7 @@ ffmpegthumbs
 phonon-qt6-vlc
 k3b
 kamoso
-plasmatube
 elisa
-kmix
 
 # -------------------- System Administration --------------------
 discover
@@ -727,7 +719,6 @@ nvtop
 screen
 tmux
 tree
-neovim
 ranger
 ncdu
 dust
@@ -913,6 +904,7 @@ pacutils
 # ===================================================================
 preload
 timeshift
+timeshift-autosnap
 scx-tools
 zpackagemanager
 firejail
@@ -984,3 +976,19 @@ zarchblack-welcome
 # END OF MANIFEST
 # ===================================================================
 
+
+# Added per user request
+alacritty
+steam
+obs-studio
+discord
+firefox
+onboard
+code
+virt-manager
+qemu-desktop
+libvirt
+dnsmasq
+iptables-nft
+edk2-ovmf
+linuxtoys-bin

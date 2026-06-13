@@ -1,0 +1,12 @@
+# ZarchBlack Terminal Crash Protection Settings
+[git_status]
+disabled = false
+# Ignore scanning if there are more than 1000 untracked files
+max_files_size = 1000
+# Disable submodules for faster scanning
+ignore_submodules = true
+
+[git_branch]
+symbol = " "
+# Disable deep scanning in large folders
+truncation_length = 4
