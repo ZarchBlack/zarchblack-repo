@@ -54,9 +54,7 @@ systemctl enable bluetooth.service
 systemctl enable avahi-daemon.service
 systemctl enable systemd-timesyncd.service
 systemctl enable fstrim.timer
-systemctl enable vmware-vmblock-fuse.service
-systemctl enable vboxservice.service
-systemctl enable vmtoolsd.service
+systemctl enable libvirtd.service || true
 
 # Set default target to GUI
 systemctl set-default graphical.target
