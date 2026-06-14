@@ -1,11 +1,11 @@
 format = 2
 pkgname = zarchblack-plasma-config
 pkgbase = zarchblack-plasma-config
-pkgver = 1.0.0-2
+pkgver = 1.0.0-3
 pkgarch = any
-pkgbuild_sha256sum = d0dbd168b33507460340afe4ebe9114281a2711e164a2c9d4562ae2e70fad984
+pkgbuild_sha256sum = 19f13d5bd894c3916d58abcb139dd838ea7b9ebb31434353930e2076861cd7aa
 packager = Unknown Packager
-builddate = 1781342298
+builddate = 1781417917
 builddir = /home/zarch/zarchblack_iso/packages/zarchblack-plasma-config
 startdir = /home/zarch/zarchblack_iso/packages/zarchblack-plasma-config
 buildtool = makepkg
