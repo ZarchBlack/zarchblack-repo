@@ -71,7 +71,35 @@ ZarchBlack features three unique, built-in applications designed to simplify pac
 
 ---
 
-## 📦 How to Add This Repository to Any Arch System
+## 🧰 The Pre-installed Arsenal
+
+ZarchBlack is heavily equipped with a curated selection of tools, ensuring that you have everything you need the moment you boot the system. We've replaced bloated, traditional software with modern, fast, and feature-rich alternatives:
+
+### 1. Terminal & CLI Productivity
+* **Modern CLI Replacements:** `eza` (ls replacement), `bat` (cat with syntax highlighting), `ripgrep` (ultra-fast search), `fd`, `dust`, and `duf`.
+* **Fun & Customization:** `linuxtoys-bin` for terminal entertainment, `starship` and `oh-my-posh` for stunning prompts.
+* **Shell & Emulators:** The robust `fish` shell, paired with fast terminal emulators like `kitty`, `alacritty`, and the drop-down `yakuake`.
+* **System Monitoring:** `btop`, `htop`, `nvtop`, and `nmon` for detailed, beautiful resource monitoring.
+* **Multiplexers & File Managers:** `tmux`, `ranger`, and `lf` for advanced terminal workflows.
+
+### 2. Pre-installed Web Browsers
+* `Thorium`, `Brave`, and `Antigravity` browsers are ready out of the box, offering blazing fast speed and privacy.
+
+### 3. Development & Security Tools
+* **Development:** `Visual Studio Code` (`code`), `vim`, `gcc`, `cmake`, and `git`.
+* **Security & Sandboxing:** `nmap`, `tcpdump`, `apparmor`, `firejail`, `audit`, and `earlyoom`.
+
+### 4. Productivity & Multimedia
+* **Office & Design:** `LibreOffice`, `GIMP`, `Krita`, and `Calibre`.
+* **Video & Audio:** `OBS Studio`, `VLC`, `Audacity`, and `Kdenlive`.
+* **Password Management:** `KeePassXC`.
+
+### 5. Recovery & System Management
+* **Snapshots & Backups:** Pre-configured `timeshift` (with auto-snap and BTRFS support), `clonezilla`, and `partimage`.
+* **Data Recovery:** `testdisk` and `ddrescue`.
+* **Installer:** The `Calamares` installer for a smooth, fast installation to your disk.
+
+---
 
 If you are already running Arch Linux or any Arch-based distribution, you can install ZarchBlack's exclusive packages by adding our repository to your system.
 
