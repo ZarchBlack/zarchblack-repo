@@ -52,7 +52,7 @@ which
 amd-ucode
 fwupd
 intel-ucode
-linux
+linux-zen
 linux-atm
 linux-firmware
 linux-firmware-broadcom
@@ -60,7 +60,7 @@ linux-firmware-marvell
 linux-firmware-qcom
 linux-firmware-qlogic
 linux-firmware-whence
-linux-headers
+linux-zen-headers
 r8125-dkms
 r8168-dkms
 
@@ -336,8 +336,6 @@ xl2tpd
 
 # -------------------- Firewall --------------------
 firewalld
-gufw
-ufw
 
 # -------------------- Zeroconf & Avahi --------------------
 avahi
@@ -975,6 +973,10 @@ vte4
 zarch-hacking
 zarchblack-welcome
 zarchguard
+apparmor
+audit
+earlyoom
+sbctl
 
 
 
