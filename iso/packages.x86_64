@@ -244,6 +244,9 @@ qemu-desktop
 virt-manager
 hyperv
 spice-vdagent
+open-vm-tools
+virtualbox-guest-utils
+qemu-guest-agent
 
 # -------------------- Miscellaneous Hardware --------------------
 b43-fwcutter
