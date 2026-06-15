@@ -249,7 +249,6 @@ spice-vdagent
 b43-fwcutter
 bolt
 broadcom-wl-dkms
-game-devices-udev
 iio-sensor-proxy
 laptop-detect
 libfido2
@@ -629,6 +628,7 @@ kweather
 markdownpart
 partitionmanager
 qalculate-qt
+mintstick
 sweeper
 yakuake
 
@@ -681,7 +681,6 @@ qbittorrent
 # -------------------- Multimedia Players --------------------
 audacity
 obs-studio
-steam
 vlc
 
 # -------------------- Accessibility --------------------
