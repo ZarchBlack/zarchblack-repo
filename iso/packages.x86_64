@@ -893,6 +893,7 @@ appstream-qt
 archinstall
 archlinux-appstream-data
 archlinux-keyring
+zarchblack-keyring
 downgrade
 expac
 flatpak
