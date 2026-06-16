@@ -1,0 +1,11 @@
+## ZarchBlack Live ISO - Audit Rules
+# Set a large backlog limit to prevent kauditd queue overflow during boot
+# Default is 64 which is far too small for a live environment that loads
+# many kernel modules simultaneously (apparmor, r8168, etc.)
+-b 8192
+
+# Set rate limiting to prevent flooding: 0 = unlimited
+-r 0
+
+# Failure mode: 1 = printk (log to kernel ring buffer, don't crash)
+-f 1
