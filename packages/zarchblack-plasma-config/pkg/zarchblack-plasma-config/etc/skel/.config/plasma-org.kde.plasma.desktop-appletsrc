@@ -26,7 +26,7 @@ positions={"0x0":[],"1024x768":["1","9"],"1422x800":["1","13"],"1920x1080":["1",
 sortMode=-1
 
 [Containments][119][Wallpaper][org.kde.image][General]
-Image=/usr/share/wallpapers/zarch-wallpapers.png
+Image=/home/zarch/Music/project-zarch-iso/zarch-wallpapers.png
 SlidePaths=/usr/share/wallpapers
 
 [Containments][120]
@@ -52,7 +52,7 @@ ToolBoxButtonX=464
 Color=0,0,0
 
 [Containments][120][Wallpaper][org.kde.image][General]
-Image=/usr/share/wallpapers/zarch-wallpapers.png
+Image=/home/zarch/Music/project-zarch-iso/zarch-wallpapers.png
 SlidePaths=/usr/share/wallpapers
 
 [Containments][121]
@@ -71,7 +71,7 @@ DialogHeight=600
 DialogWidth=800
 
 [Containments][121][Wallpaper][org.kde.image][General]
-Image=/usr/share/wallpapers/zarch-wallpapers.png
+Image=/home/zarch/Music/project-zarch-iso/zarch-wallpapers.png
 SlidePaths=/usr/share/wallpapers
 
 [Containments][126]
@@ -180,7 +180,7 @@ globalSettings={"panel":{"normal":{"enabled":false,"blurBehind":false,"backgroun
 hiddenWidgets={"widgets":[{"name":"org.kde.plasma.lock_logout","id":227,"hide":true}]}
 hideWidget=true
 lastPreset=/usr/share/plasma/plasmoids/luisbocanegra.panel.colorizer/contents/ui/presets/Blur Widgets
-panelWidgets=[{"id":234,"name":"luisbocanegra.panel.colorizer","title":"Panel colorizer","icon":"desktop","inTray":false},{"id":158,"name":"org.kde.plasma.kicker","title":"Application Menu","icon":"/usr/share/pixmaps/zarchblack-logo.png","inTray":false},{"id":216,"name":"org.kde.plasma.appmenu","title":"Global Menu","icon":"show-menu","inTray":false},{"id":152,"name":"org.kde.plasma.panelspacer","title":"Panel Spacer","icon":"distribute-horizontal-x","inTray":false},{"id":278,"name":"luisbocanegra.audio.visualizer","title":"Kurve","icon":"waveform-symbolic","inTray":false},{"id":196,"name":"org.kde.plasma.digitalclock","title":"Digital Clock","icon":"preferences-system-time","inTray":false},{"id":277,"name":"luisbocanegra.audio.visualizer","title":"Kurve","icon":"waveform-symbolic","inTray":false},{"id":151,"name":"org.kde.plasma.panelspacer","title":"Panel Spacer","icon":"distribute-horizontal-x","inTray":false},{"id":279,"name":"org.kde.plasma.icon","title":"Onboard","icon":"onboard","inTray":false},{"id":236,"name":"org.kde.plasma.notes","title":"Sticky Note","icon":"knotes-symbolic","inTray":false},{"id":255,"name":"org.kde.plasma.icon","title":"btop++","icon":"mercury-browser","inTray":false},{"id":259,"name":"org.kde.plasma.icon","title":"System Monitor","icon":"utilities-system-monitor","inTray":false},{"id":272,"name":"org.kde.plasma.icon","title":"Timeshift","icon":"timeshift","inTray":false},{"id":280,"name":"org.kde.plasma.icon","title":"Spotify","icon":"com.spotify.Client","inTray":false},{"id":281,"name":"org.kde.plasma.icon","title":"ZarchGuard","icon":"zarchguard","inTray":false},{"id":268,"name":"com.github.exequtic.apdatifier","title":"Apdatifier","icon":"apdatifier-plasmoid","inTray":false},{"id":261,"name":"luisbocanegra.kdematerialyou.colors","title":"KDE Material You Colors","icon":"preferences-desktop-theme-global","inTray":false},{"id":238,"name":"org.kde.plasma.systemtray","title":"System Tray","icon":"preferences-desktop-notification","inTray":false},{"id":271,"name":"org.kde.plasma.shutdownorswitch","title":"Shutdown or Switch","icon":"system-switch-user-symbolic","inTray":false},{"id":-1,"name":"org.kde.plasma.notifications","title":"Notifications","icon":"notification-active-symbolic","inTray":true},{"id":-1,"name":"org.kde.merkuro.contact.applet","title":"Contacts","icon":"im-user-symbolic","inTray":true},{"id":-1,"name":"Antigravity_status_icon_1","title":"Antigravity","icon":"","inTray":true},{"id":-1,"name":"variety","title":"variety","icon":"/usr/lib/python3.14/site-packages/variety/data/media/variety-indicator.png","inTray":true},{"id":-1,"name":"Yakuake","title":"Yakuake","icon":"yakuake-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.clipboard","title":"Clipboard","icon":"klipper-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.volume","title":"Audio Volume","icon":"audio-volume-high-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.brightness","title":"Brightness & Color","icon":"brightness-high-symbolic","inTray":true},{"id":-1,"name":"org.kde.kdeconnect","title":"KDE Connect","icon":"kdeconnect-tray-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.networkmanagement","title":"Networks","icon":"network-wired-activated-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.systemtray.expand","title":"Show hidden icons","icon":"arrow-down","inTray":true}]
+panelWidgets=[{"id":234,"name":"luisbocanegra.panel.colorizer","title":"Panel colorizer","icon":"desktop","inTray":false},{"id":158,"name":"org.kde.plasma.kicker","title":"Application Menu","icon":"/usr/share/pixmaps/zarchblack-logo.png","inTray":false},{"id":216,"name":"org.kde.plasma.appmenu","title":"Global Menu","icon":"show-menu","inTray":false},{"id":152,"name":"org.kde.plasma.panelspacer","title":"Panel Spacer","icon":"distribute-horizontal-x","inTray":false},{"id":278,"name":"luisbocanegra.audio.visualizer","title":"Kurve","icon":"waveform-symbolic","inTray":false},{"id":196,"name":"org.kde.plasma.digitalclock","title":"Digital Clock","icon":"preferences-system-time","inTray":false},{"id":277,"name":"luisbocanegra.audio.visualizer","title":"Kurve","icon":"waveform-symbolic","inTray":false},{"id":151,"name":"org.kde.plasma.panelspacer","title":"Panel Spacer","icon":"distribute-horizontal-x","inTray":false},{"id":279,"name":"org.kde.plasma.icon","title":"Onboard","icon":"onboard","inTray":false},{"id":236,"name":"org.kde.plasma.notes","title":"Sticky Note","icon":"knotes-symbolic","inTray":false},{"id":255,"name":"org.kde.plasma.icon","title":"btop++","icon":"mercury-browser","inTray":false},{"id":259,"name":"org.kde.plasma.icon","title":"System Monitor","icon":"utilities-system-monitor","inTray":false},{"id":272,"name":"org.kde.plasma.icon","title":"Timeshift","icon":"timeshift","inTray":false},{"id":281,"name":"org.kde.plasma.icon","title":"ZarchGuard","icon":"zarchguard","inTray":false},{"id":268,"name":"com.github.exequtic.apdatifier","title":"Apdatifier","icon":"apdatifier-plasmoid","inTray":false},{"id":261,"name":"luisbocanegra.kdematerialyou.colors","title":"KDE Material You Colors","icon":"preferences-desktop-theme-global","inTray":false},{"id":238,"name":"org.kde.plasma.systemtray","title":"System Tray","icon":"preferences-desktop-notification","inTray":false},{"id":271,"name":"org.kde.plasma.shutdownorswitch","title":"Shutdown or Switch","icon":"system-switch-user-symbolic","inTray":false},{"id":-1,"name":"org.kde.plasma.notifications","title":"Notifications","icon":"notification-active-symbolic","inTray":true},{"id":-1,"name":"org.kde.merkuro.contact.applet","title":"Contacts","icon":"im-user-symbolic","inTray":true},{"id":-1,"name":"Antigravity_status_icon_1","title":"Antigravity","icon":"","inTray":true},{"id":-1,"name":"variety","title":"variety","icon":"/usr/lib/python3.14/site-packages/variety/data/media/variety-indicator.png","inTray":true},{"id":-1,"name":"Yakuake","title":"Yakuake","icon":"yakuake-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.clipboard","title":"Clipboard","icon":"klipper-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.volume","title":"Audio Volume","icon":"audio-volume-high-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.brightness","title":"Brightness & Color","icon":"brightness-high-symbolic","inTray":true},{"id":-1,"name":"org.kde.kdeconnect","title":"KDE Connect","icon":"kdeconnect-tray-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.networkmanagement","title":"Networks","icon":"network-wired-activated-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.systemtray.expand","title":"Show hidden icons","icon":"arrow-down","inTray":true}]
 pluginFound=true
 
 [Containments][126][Applets][236]
@@ -253,6 +253,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][126][Applets][238][Applets][248][Configuration][General]
+currentTab=streams
 migrated=true
 
 [Containments][126][Applets][238][Applets][249]
@@ -340,7 +341,7 @@ widgets=true
 [Containments][126][Applets][268][Configuration][Miscellaneous]
 configMsg=false
 rulesMsg=false
-timestamp=1782240659372
+timestamp=1782251918103
 version=v2.9.2
 
 [Containments][126][Applets][268][Configuration][Upgrade]
@@ -410,14 +411,6 @@ plugin=org.kde.plasma.icon
 localPath=/home/zarch/.local/share/plasma_icons/onboard.desktop
 url=file:///usr/share/applications/onboard.desktop
 
-[Containments][126][Applets][280]
-immutability=1
-plugin=org.kde.plasma.icon
-
-[Containments][126][Applets][280][Configuration]
-localPath=/home/zarch/.local/share/plasma_icons/com.spotify.Client.desktop
-url=file:///var/lib/flatpak/app/com.spotify.Client/current/active/export/share/applications/com.spotify.Client.desktop
-
 [Containments][126][Applets][281]
 immutability=1
 plugin=org.kde.plasma.icon
@@ -431,7 +424,7 @@ DialogHeight=87
 DialogWidth=2560
 
 [Containments][126][General]
-AppletOrder=234;158;216;152;278;196;277;151;279;236;255;259;272;280;281;268;261;238;271
+AppletOrder=234;158;216;152;278;196;277;151;279;236;255;259;272;281;268;261;238;271
 
 [Containments][168]
 activityId=
@@ -453,7 +446,7 @@ DialogWidth=720
 [Containments][168][Applets][169][Configuration][General]
 fill=false
 iconSpacing=0
-launchers=applications:com.obsproject.Studio.desktop,file:///var/lib/flatpak/exports/share/applications/com.spotify.Client.desktop,applications:org.kde.spectacle.desktop,applications:kvantummanager.desktop,applications:org.kde.kate.desktop,applications:org.gnome.Meld.desktop,applications:gimp.desktop,applications:vim.desktop,applications:code-oss.desktop,applications:antigravity.desktop,applications:virtualbox.desktop,applications:org.kde.discover.desktop,applications:firefox.desktop,applications:thorium-browser.desktop,applications:brave-browser.desktop,applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.konsole.desktop
+launchers=applications:com.obsproject.Studio.desktop,applications:org.kde.spectacle.desktop,applications:kvantummanager.desktop,applications:org.kde.kate.desktop,applications:org.gnome.Meld.desktop,applications:gimp.desktop,applications:vim.desktop,applications:code-oss.desktop,applications:ai.opencode.desktop.desktop,applications:antigravity.desktop,applications:org.kde.discover.desktop,applications:firefox.desktop,applications:thorium-browser.desktop,applications:brave-browser.desktop,applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.konsole.desktop
 
 [Containments][168][Applets][232]
 immutability=1
@@ -485,7 +478,7 @@ plugin=org.kde.plasma.kickoff
 
 [Containments][168][Applets][258][Configuration]
 popupHeight=526
-popupWidth=1022
+popupWidth=984
 
 [Containments][168][Applets][258][Configuration][ConfigDialog]
 DialogHeight=630
@@ -554,14 +547,14 @@ ToolBoxButtonX=366
 ToolBoxButtonY=56
 changedPositions={"desktop:/project-zarch-iso":["1920x1080","0","0"]}
 lastResolution=1920x1080
-positions={"1920x1080":["1","17","desktop:/أخر نسخة من ملفات البناء الصحيحة بدون أخطاء ","0","0","desktop:/Folder-kiro","0","1","desktop:/project-zarch-iso","0","0","desktop:/shrikelinux-iso","0","0","desktop:/project-iso-zarch","0","1"]}
+positions={"1920x1080":["1","17","desktop:/project-iso-zarch","0","1","desktop:/أخر نسخة من ملفات البناء الصحيحة بدون أخطاء ","0","0","desktop:/shrikelinux-iso","0","0","desktop:/project-zarch-iso","0","0","desktop:/Folder-kiro","0","1"]}
 sortMode=-1
 
 [Containments][87][Wallpaper][luisbocanegra.smart.video.wallpaper.reborn][General]
 VideoUrls=[{"filename":"file:// chú hề _ Hoạt hình 3d_ Hình gif_ Đẹp(MP4).mp4","enabled":false,"duration":0,"customDuration":0,"playbackRate":0,"alternativePlaybackRate":0,"loop":false},{"filename":"file:// idolmaster the idolmaster stage show _ The idol masters show_ Moving wallpapers_ Wallpaper animes(MP4).mp4","enabled":false,"duration":0,"customDuration":0,"playbackRate":0,"alternativePlaybackRate":0,"loop":false}]
 
 [Containments][87][Wallpaper][org.kde.image][General]
-Image=/usr/share/wallpapers/zarch-wallpapers.png
+Image=/home/zarch/Music/project-zarch-iso/zarch-wallpapers.png
 SlidePaths=/usr/share/wallpapers/
 
 [Containments][9][Applets][24][Configuration]

@@ -61,8 +61,6 @@ linux-firmware-qcom
 linux-firmware-qlogic
 linux-firmware-whence
 linux-zen-headers
-r8125-dkms
-r8168-dkms
 
 # -------------------- Initramfs (mkinitcpio) --------------------
 mkinitcpio

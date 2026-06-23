@@ -56,6 +56,5 @@ systemctl enable libvirtd.service || true
 # Set default target to GUI
 systemctl set-default graphical.target
 
-# 12. Flatpak: Add Flathub remote and install Spotify
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || true
-flatpak install --system --noninteractive flathub com.spotify.Client || true
+# 12. Flatpak: Add Flathub remote
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
