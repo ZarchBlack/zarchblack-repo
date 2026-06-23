@@ -3,7 +3,7 @@
 
 pkgname=zarchblack-wallpapers
 pkgver=1.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="ZarchBlack official wallpaper collection - curated high-quality backgrounds"
 arch=('any')
 url="https://github.com/ZarchBlack/zarchblack"

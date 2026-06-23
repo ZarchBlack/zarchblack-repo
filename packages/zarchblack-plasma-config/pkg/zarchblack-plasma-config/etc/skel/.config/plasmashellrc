@@ -56,6 +56,7 @@ floating=1
 panelLengthMode=2
 panelOpacity=2
 panelVisibility=2
+shell=org.kde.plasma.desktop
 
 [PlasmaViews][Panel 126][Defaults]
 floating=0
@@ -73,6 +74,7 @@ floating=1
 panelLengthMode=1
 panelOpacity=2
 panelVisibility=2
+shell=org.kde.plasma.desktop
 
 [PlasmaViews][Panel 168][Defaults]
 floating=0

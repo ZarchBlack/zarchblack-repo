@@ -82,3 +82,7 @@ iso/airootfs/usr/share/icons/Varied-kde-arch-light/
 iso/airootfs/usr/share/icons/Gradient-KDE-Story-Blue-Dark-Icons/
 iso/airootfs/usr/share/icons/hicolor/
 iso/airootfs/usr/share/icons/default/
+*.AppImage
+*.pkg.tar.*
+src/
+pkg/

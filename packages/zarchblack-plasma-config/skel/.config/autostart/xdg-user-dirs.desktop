@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=User Directories Update
+Exec=xdg-user-dirs-update
+Terminal=false
+Hidden=false
+X-KDE-autostart-after=panel

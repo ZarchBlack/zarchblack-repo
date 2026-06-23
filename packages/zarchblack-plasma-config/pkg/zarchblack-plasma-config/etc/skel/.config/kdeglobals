@@ -123,8 +123,7 @@ ForegroundVisited=203, 166, 247
 
 [General]
 AccentColor=148,72,211
-ColorScheme=CatppuccinMochaLavender
-ColorSchemeHash=86c416d910e6c2079b3f9a0cdde0853b77843400
+ColorSchemeHash=484b3330cbf6558056b50300caf14f234f0b04f0
 LastUsedCustomAccentColor=148,72,211
 Name=Layan
 shadeSortColumn=true
@@ -156,7 +155,7 @@ Sort directories first=true
 Sort hidden files last=false
 Sort reversed=false
 Speedbar Width=138
-View Style=Simple
+View Style=DetailTree
 
 [KScreen]
 ScreenScaleFactors=HDMI-A-1=1;HDMI-A-2=1;DP-1=1;

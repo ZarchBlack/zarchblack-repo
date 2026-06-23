@@ -1,0 +1,38 @@
+# Maintainer: ZarchBlack <https://github.com/ZarchBlack>
+# OpenCode Desktop - The open source AI coding agent desktop app
+# Source: https://opencode.ai/
+
+pkgname=opencode-desktop
+pkgver=1.17.9
+pkgrel=1
+pkgdesc="OpenCode - The open source AI coding agent desktop app (https://opencode.ai)"
+arch=('x86_64')
+url="https://opencode.ai"
+license=('MIT')
+depends=('fuse2')
+optdepends=('nodejs: for CLI tools')
+source=("opencode-desktop-${pkgver}-linux-x86_64.AppImage::https://github.com/anomalyco/opencode/releases/download/v${pkgver}/opencode-desktop-linux-x86_64.AppImage")
+sha256sums=('5483a8e7074786c1b47cafaf39e300cfabc620613e0e92fafc4bc0bba15ae04d')
+options=('!strip')
+
+package() {
+  # Install AppImage
+  install -Dm755 "opencode-desktop-${pkgver}-linux-x86_64.AppImage" \
+    "${pkgdir}/opt/opencode-desktop/opencode-desktop.AppImage"
+
+  # Create wrapper script in /usr/bin
+  install -dm755 "${pkgdir}/usr/bin"
+  cat > "${pkgdir}/usr/bin/opencode-desktop" << 'EOF'
+#!/usr/bin/env bash
+exec /opt/opencode-desktop/opencode-desktop.AppImage --no-sandbox "$@"
+EOF
+  chmod 755 "${pkgdir}/usr/bin/opencode-desktop"
+
+  # Install icon
+  install -Dm644 "${startdir}/icons/opencode-desktop.png" \
+    "${pkgdir}/usr/share/icons/hicolor/96x96/apps/opencode-desktop.png"
+
+  # Install .desktop file
+  install -Dm644 "${startdir}/opencode-desktop.desktop" \
+    "${pkgdir}/usr/share/applications/opencode-desktop.desktop"
+}

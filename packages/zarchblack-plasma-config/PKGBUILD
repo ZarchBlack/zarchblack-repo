@@ -3,7 +3,7 @@
 
 pkgname=zarchblack-plasma-config
 pkgver=1.0.0
-pkgrel=3
+pkgrel=4
 pkgdesc="ZarchBlack KDE Plasma default configuration - desktop layout, panels, widgets"
 arch=('any')
 url="https://github.com/ZarchBlack/zarchblack"
@@ -20,7 +20,7 @@ package() {
     cp -r "${startdir}/skel/." "${pkgdir}/etc/skel/"
   else
     # Fallback to absolute path if startdir/skel doesn't exist
-    cp -r /home/zarch/zarchblack_iso/iso/airootfs/etc/skel/. "${pkgdir}/etc/skel/"
+    cp -r /home/zarch/Music/project-zarch-iso/zarchblack_iso/iso/airootfs/etc/skel/. "${pkgdir}/etc/skel/"
   fi
   
   mkdir -p "${pkgdir}/usr/share/zarchblack/plasma"

@@ -574,6 +574,7 @@ kde-material-you-colors
 kdeplasma-addons
 kwin-effect-rounded-corners-git
 plasma6-applets-panel-colorizer
+plasma6-applets-kurve
 
 
 # ===================================================================
@@ -666,6 +667,7 @@ merkuro
 antigravity
 brave-bin
 thorium-browser-bin
+opencode-desktop
 
 
 # -------------------- Office & Productivity --------------------
