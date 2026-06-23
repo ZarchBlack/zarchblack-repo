@@ -45,6 +45,7 @@ systemctl disable systemd-networkd.service systemd-networkd-wait-online.service 
 
 # 11. Enable System Services Natively
 systemctl enable NetworkManager.service
+systemctl enable iwd.service
 systemctl enable sddm.service
 systemctl enable bluetooth.service
 systemctl enable avahi-daemon.service
