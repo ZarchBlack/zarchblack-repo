@@ -12,7 +12,7 @@ import urllib.parse
 import urllib.error
 import json
 
-REPO_DIR = "/home/zarch/zarchblack-repo/x86_64"
+REPO_DIR = "/home/zarch/Music/project-zarch-iso/zarchblack-repo/x86_64"
 def get_gh_token():
     token = os.environ.get("GH_TOKEN", "")
     if not token:
@@ -103,43 +103,35 @@ def main():
         
     print(f"Found {len(packages)} packages locally.")
     
-    # 2. Sign all packages
-    for pkg in packages:
-        sig_file = pkg + ".sig"
-        print(f"Signing {os.path.basename(pkg)}...")
-        subprocess.run([
-            "gpg", "--batch", "--yes", "--pinentry-mode", "loopback",
-            "--local-user", KEY_ID, "--detach-sign", pkg
-        ], check=True)
+    # 2. Skip signing since no secret key
+    print("Skipping GPG signing...")
         
     # 3. Clean and recreate repository database
     print("\nRebuilding repository database index...")
     db_file = os.path.join(REPO_DIR, "zarchblack-repo.db.tar.gz")
     
     # Delete old database files
-    for ext in [".db", ".db.tar.gz", ".db.tar.gz.sig", ".db.sig", ".files", ".files.tar.gz", ".files.tar.gz.sig", ".files.sig"]:
+    for ext in [".db", ".db.tar.gz", ".db.sig", ".files", ".files.tar.gz", ".files.sig"]:
         fpath = os.path.join(REPO_DIR, "zarchblack-repo" + ext)
         if os.path.exists(fpath):
             os.remove(fpath)
             
-    # Run repo-add with signature and include sigs
-    cmd = ["repo-add", "--sign", "--key", KEY_ID, "--include-sigs", db_file] + packages
+    # Run repo-add without signature
+    cmd = ["repo-add", db_file] + packages
     subprocess.run(cmd, check=True)
-    print("Repository database generated and signed successfully.")
+    print("Repository database generated successfully.")
     
     # 4. Sync with GitHub Releases
     print("\nFetching remote assets from GitHub Releases...")
     remote_assets = get_release_assets()
     
-    # List all files we want to upload (packages, database files, and their signatures)
+    # List all files we want to upload (packages, database files)
     local_files = []
-    # Add packages and their signatures
     for pkg in packages:
         local_files.append(pkg)
-        local_files.append(pkg + ".sig")
     
-    # Add database files and their signatures
-    for ext in [".db", ".db.tar.gz", ".db.tar.gz.sig", ".db.sig", ".files", ".files.tar.gz", ".files.tar.gz.sig", ".files.sig"]:
+    # Add database files
+    for ext in [".db", ".db.tar.gz", ".files", ".files.tar.gz"]:
         fpath = os.path.join(REPO_DIR, "zarchblack-repo" + ext)
         if os.path.exists(fpath):
             local_files.append(fpath)
