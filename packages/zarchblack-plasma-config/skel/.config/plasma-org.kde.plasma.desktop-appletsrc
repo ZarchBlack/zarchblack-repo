@@ -180,7 +180,7 @@ globalSettings={"panel":{"normal":{"enabled":false,"blurBehind":false,"backgroun
 hiddenWidgets={"widgets":[{"name":"org.kde.plasma.lock_logout","id":227,"hide":true}]}
 hideWidget=true
 lastPreset=/usr/share/plasma/plasmoids/luisbocanegra.panel.colorizer/contents/ui/presets/Blur Widgets
-panelWidgets=[{"id":234,"name":"luisbocanegra.panel.colorizer","title":"Panel colorizer","icon":"desktop","inTray":false},{"id":158,"name":"org.kde.plasma.kicker","title":"Application Menu","icon":"/usr/share/pixmaps/zarchblack-logo.png","inTray":false},{"id":216,"name":"org.kde.plasma.appmenu","title":"Global Menu","icon":"show-menu","inTray":false},{"id":152,"name":"org.kde.plasma.panelspacer","title":"Panel Spacer","icon":"distribute-horizontal-x","inTray":false},{"id":278,"name":"luisbocanegra.audio.visualizer","title":"Kurve","icon":"waveform-symbolic","inTray":false},{"id":196,"name":"org.kde.plasma.digitalclock","title":"Digital Clock","icon":"preferences-system-time","inTray":false},{"id":277,"name":"luisbocanegra.audio.visualizer","title":"Kurve","icon":"waveform-symbolic","inTray":false},{"id":151,"name":"org.kde.plasma.panelspacer","title":"Panel Spacer","icon":"distribute-horizontal-x","inTray":false},{"id":279,"name":"org.kde.plasma.icon","title":"Onboard","icon":"onboard","inTray":false},{"id":236,"name":"org.kde.plasma.notes","title":"Sticky Note","icon":"knotes-symbolic","inTray":false},{"id":255,"name":"org.kde.plasma.icon","title":"btop++","icon":"mercury-browser","inTray":false},{"id":259,"name":"org.kde.plasma.icon","title":"System Monitor","icon":"utilities-system-monitor","inTray":false},{"id":272,"name":"org.kde.plasma.icon","title":"Timeshift","icon":"timeshift","inTray":false},{"id":281,"name":"org.kde.plasma.icon","title":"ZarchGuard","icon":"zarchguard","inTray":false},{"id":268,"name":"com.github.exequtic.apdatifier","title":"Apdatifier","icon":"apdatifier-plasmoid","inTray":false},{"id":261,"name":"luisbocanegra.kdematerialyou.colors","title":"KDE Material You Colors","icon":"preferences-desktop-theme-global","inTray":false},{"id":238,"name":"org.kde.plasma.systemtray","title":"System Tray","icon":"preferences-desktop-notification","inTray":false},{"id":271,"name":"org.kde.plasma.shutdownorswitch","title":"Shutdown or Switch","icon":"system-switch-user-symbolic","inTray":false},{"id":-1,"name":"org.kde.plasma.notifications","title":"Notifications","icon":"notification-active-symbolic","inTray":true},{"id":-1,"name":"org.kde.merkuro.contact.applet","title":"Contacts","icon":"im-user-symbolic","inTray":true},{"id":-1,"name":"Antigravity_status_icon_1","title":"Antigravity","icon":"","inTray":true},{"id":-1,"name":"variety","title":"variety","icon":"/usr/lib/python3.14/site-packages/variety/data/media/variety-indicator.png","inTray":true},{"id":-1,"name":"Yakuake","title":"Yakuake","icon":"yakuake-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.clipboard","title":"Clipboard","icon":"klipper-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.volume","title":"Audio Volume","icon":"audio-volume-high-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.brightness","title":"Brightness & Color","icon":"brightness-high-symbolic","inTray":true},{"id":-1,"name":"org.kde.kdeconnect","title":"KDE Connect","icon":"kdeconnect-tray-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.networkmanagement","title":"Networks","icon":"network-wired-activated-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.systemtray.expand","title":"Show hidden icons","icon":"arrow-down","inTray":true}]
+panelWidgets=[{"id":234,"name":"luisbocanegra.panel.colorizer","title":"Panel colorizer","icon":"desktop","inTray":false},{"id":158,"name":"org.kde.plasma.kicker","title":"Application Menu","icon":"/usr/share/pixmaps/zarchblack-logo.png","inTray":false},{"id":216,"name":"org.kde.plasma.appmenu","title":"Global Menu","icon":"show-menu","inTray":false},{"id":152,"name":"org.kde.plasma.panelspacer","title":"Panel Spacer","icon":"distribute-horizontal-x","inTray":false},{"id":278,"name":"luisbocanegra.audio.visualizer","title":"Kurve","icon":"waveform-symbolic","inTray":false},{"id":196,"name":"org.kde.plasma.digitalclock","title":"Digital Clock","icon":"preferences-system-time","inTray":false},{"id":277,"name":"luisbocanegra.audio.visualizer","title":"Kurve","icon":"waveform-symbolic","inTray":false},{"id":151,"name":"org.kde.plasma.panelspacer","title":"Panel Spacer","icon":"distribute-horizontal-x","inTray":false},{"id":279,"name":"org.kde.plasma.icon","title":"Onboard","icon":"onboard","inTray":false},{"id":236,"name":"org.kde.plasma.notes","title":"Sticky Note","icon":"knotes-symbolic","inTray":false},{"id":255,"name":"org.kde.plasma.icon","title":"btop++","icon":"mercury-browser","inTray":false},{"id":259,"name":"org.kde.plasma.icon","title":"System Monitor","icon":"utilities-system-monitor","inTray":false},{"id":272,"name":"org.kde.plasma.icon","title":"Timeshift","icon":"timeshift","inTray":false},{"id":281,"name":"org.kde.plasma.icon","title":"ZarchGuard","icon":"zarchguard","inTray":false},{"id":268,"name":"com.github.exequtic.apdatifier","title":"Apdatifier","icon":"apdatifier-plasmoid","inTray":false},{"id":261,"name":"luisbocanegra.kdematerialyou.colors","title":"KDE Material You Colors","icon":"preferences-desktop-theme-global","inTray":false},{"id":238,"name":"org.kde.plasma.systemtray","title":"System Tray","icon":"preferences-desktop-notification","inTray":false},{"id":271,"name":"org.kde.plasma.shutdownorswitch","title":"Shutdown or Switch","icon":"system-switch-user-symbolic","inTray":false},{"id":-1,"name":"org.kde.merkuro.contact.applet","title":"Contacts","icon":"im-user-symbolic","inTray":true},{"id":-1,"name":"Antigravity_status_icon_1","title":"Antigravity","icon":"","inTray":true},{"id":-1,"name":"variety","title":"variety","icon":"/usr/lib/python3.14/site-packages/variety/data/media/variety-indicator.png","inTray":true},{"id":-1,"name":"Yakuake","title":"Yakuake","icon":"yakuake-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.clipboard","title":"Clipboard","icon":"klipper-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.volume","title":"Audio Volume","icon":"audio-volume-high-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.brightness","title":"Brightness & Color","icon":"brightness-high-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.devicenotifier","title":"Disks & Devices","icon":"drive-removable-media-usb-symbolic","inTray":true},{"id":-1,"name":"org.kde.kdeconnect","title":"KDE Connect","icon":"kdeconnect-tray-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.networkmanagement","title":"Networks","icon":"network-wired-activated-symbolic","inTray":true},{"id":-1,"name":"org.kde.plasma.systemtray.expand","title":"Show hidden icons","icon":"arrow-down","inTray":true}]
 pluginFound=true
 
 [Containments][126][Applets][236]
@@ -196,10 +196,11 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][126][Applets][236][Configuration][General]
-cursorPosition=6923
+cursorPosition=3871
 fontSize=10
 noteId=f6850be7-7338-4c1a-bbd3-b531c6771d
-scrollY=78660
+scrollX=3
+scrollY=40932
 
 [Containments][126][Applets][238]
 activityId=
@@ -253,7 +254,6 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][126][Applets][238][Applets][248][Configuration][General]
-currentTab=streams
 migrated=true
 
 [Containments][126][Applets][238][Applets][249]
@@ -341,7 +341,7 @@ widgets=true
 [Containments][126][Applets][268][Configuration][Miscellaneous]
 configMsg=false
 rulesMsg=false
-timestamp=1782251918103
+timestamp=1782306217192
 version=v2.9.2
 
 [Containments][126][Applets][268][Configuration][Upgrade]
@@ -547,7 +547,7 @@ ToolBoxButtonX=366
 ToolBoxButtonY=56
 changedPositions={"desktop:/project-zarch-iso":["1920x1080","0","0"]}
 lastResolution=1920x1080
-positions={"1920x1080":["1","17","desktop:/project-iso-zarch","0","1","desktop:/أخر نسخة من ملفات البناء الصحيحة بدون أخطاء ","0","0","desktop:/shrikelinux-iso","0","0","desktop:/project-zarch-iso","0","0","desktop:/Folder-kiro","0","1"]}
+positions={"1920x1080":["1","17","desktop:/project-iso-zarch","0","1","desktop:/أخر نسخة من ملفات البناء الصحيحة بدون أخطاء ","0","0","desktop:/shrikelinux-iso","0","0","desktop:/Folder-kiro","0","1","desktop:/project-zarch-iso","0","0"]}
 sortMode=-1
 
 [Containments][87][Wallpaper][luisbocanegra.smart.video.wallpaper.reborn][General]
@@ -568,4 +568,4 @@ PreloadWeight=42
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/zero-settings,0,cd915191-804f-4d50-8fc3-f8e5c0279f54,desktop://project-zarch-iso,0,cd915191-804f-4d50-8fc3-f8e5c0279f54,desktop:/zero-theme.tar.gz,0,cd915191-804f-4d50-8fc3-f8e5c0279f54
+screenMapping=desktop:/zero-theme.tar.gz,0,cd915191-804f-4d50-8fc3-f8e5c0279f54,desktop://project-zarch-iso,0,cd915191-804f-4d50-8fc3-f8e5c0279f54,desktop:/zero-settings,0,cd915191-804f-4d50-8fc3-f8e5c0279f54

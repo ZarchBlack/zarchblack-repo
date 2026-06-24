@@ -3,7 +3,7 @@
 
 pkgname=zarchblack-plasma-config
 pkgver=1.0.0
-pkgrel=4
+pkgrel=5
 pkgdesc="ZarchBlack KDE Plasma default configuration - desktop layout, panels, widgets"
 arch=('any')
 url="https://github.com/ZarchBlack/zarchblack"
