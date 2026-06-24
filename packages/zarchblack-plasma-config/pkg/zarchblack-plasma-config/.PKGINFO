@@ -3,12 +3,12 @@
 pkgname = zarchblack-plasma-config
 pkgbase = zarchblack-plasma-config
 xdata = pkgtype=pkg
-pkgver = 1.0.0-5
+pkgver = 1.0.0-6
 pkgdesc = ZarchBlack KDE Plasma default configuration - desktop layout, panels, widgets
 url = https://github.com/ZarchBlack/zarchblack
-builddate = 1782306837
+builddate = 1782316510
 packager = Unknown Packager
-size = 4907741
+size = 4907635
 arch = any
 license = GPL3
 depend = plasma-desktop

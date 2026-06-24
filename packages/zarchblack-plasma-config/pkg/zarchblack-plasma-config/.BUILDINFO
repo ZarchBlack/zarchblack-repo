@@ -1,11 +1,11 @@
 format = 2
 pkgname = zarchblack-plasma-config
 pkgbase = zarchblack-plasma-config
-pkgver = 1.0.0-5
+pkgver = 1.0.0-6
 pkgarch = any
-pkgbuild_sha256sum = 7e3196445c504559825710a0506a1e8a1878ae2412a5acbd610b471485d9d7f8
+pkgbuild_sha256sum = 350599ad7e76da55d9cd9834629168ed07e82a3f90d043a4faaf2f03a05c165d
 packager = Unknown Packager
-builddate = 1782306837
+builddate = 1782316510
 builddir = /home/zarch/Music/project-zarch-iso/zarchblack_iso/packages/zarchblack-plasma-config
 startdir = /home/zarch/Music/project-zarch-iso/zarchblack_iso/packages/zarchblack-plasma-config
 buildtool = makepkg
