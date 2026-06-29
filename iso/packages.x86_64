@@ -249,7 +249,6 @@ qemu-guest-agent
 # -------------------- Miscellaneous Hardware --------------------
 b43-fwcutter
 bolt
-broadcom-wl-dkms
 iio-sensor-proxy
 laptop-detect
 libfido2
@@ -276,7 +275,6 @@ nm-connection-editor
 
 # -------------------- Core Networking Tools --------------------
 dhclient
-dhcpcd
 dnsutils
 iproute2
 iw
@@ -986,3 +984,12 @@ sbctl
 # END OF MANIFEST
 # ===================================================================
 
+linux-firmware-realtek
+linux-firmware-intel
+linux-firmware-atheros
+linux-firmware-mediatek
+linux-firmware-amdgpu
+dhcpcd
+dhclient
+r8168-dkms
+r8125-dkms
