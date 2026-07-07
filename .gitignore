@@ -86,3 +86,7 @@ iso/airootfs/usr/share/icons/default/
 *.pkg.tar.*
 src/
 pkg/
+
+# Package build artifacts
+packages/*/pkg/
+packages/*/src/
