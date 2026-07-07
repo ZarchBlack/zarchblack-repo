@@ -11,6 +11,9 @@
   <a href="https://github.com/ZarchBlack/zarchblack-repo/releases/latest">
     <img src="https://img.shields.io/github/v/release/ZarchBlack/zarchblack-repo?style=flat-square&label=Latest%20Release&color=blueviolet" alt="Latest Release" />
   </a>
+  <a href="https://zarchblack.pages.dev/">
+    <img src="https://img.shields.io/badge/Website-zarchblack.pages.dev-8B5CF6?style=flat-square&logo=cloudflare&logoColor=white" alt="Website" />
+  </a>
   <img src="https://img.shields.io/badge/Based%20on-Arch%20Linux-1793D1?style=flat-square&logo=arch-linux&logoColor=white" alt="Arch Based" />
   <img src="https://img.shields.io/badge/Desktop-KDE%20Plasma%206-1D99F3?style=flat-square&logo=kde&logoColor=white" alt="KDE Plasma 6" />
   <img src="https://img.shields.io/badge/Session-Wayland-F05032?style=flat-square" alt="Wayland" />
@@ -18,6 +21,9 @@
 </p>
 
 <p align="center">
+  <a href="https://zarchblack.pages.dev/">
+    <img src="https://img.shields.io/badge/🌐_Website-zarchblack.pages.dev-8B5CF6?style=for-the-badge" alt="Website" />
+  </a>
   <a href="https://huggingface.co/datasets/zarchblack/zarchblack-releases/tree/main">
     <img src="https://img.shields.io/badge/Download_ISO-Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=000" alt="Download ISO" />
   </a>
@@ -206,6 +212,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a full history of changes.
 
 | Platform | Link |
 |---|---|
+| 🌐 Official Website | [zarchblack.pages.dev](https://zarchblack.pages.dev/) |
 | 🐛 Bug Reports | [GitHub Issues](https://github.com/ZarchBlack/zarchblack-repo/issues) |
 | 📖 Changelog | [CHANGELOG.md](CHANGELOG.md) |
 | 🔒 Security | [SECURITY.md](SECURITY.md) |
