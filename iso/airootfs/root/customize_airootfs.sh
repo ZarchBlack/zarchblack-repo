@@ -58,3 +58,8 @@ systemctl set-default graphical.target
 
 # 12. Flatpak: Add Flathub remote
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+# 13. Enable Firewalld and fix KDE Connect
+systemctl enable firewalld.service
+firewall-cmd --permanent --zone=public --add-service=kdeconnect
+firewall-cmd --reload || true

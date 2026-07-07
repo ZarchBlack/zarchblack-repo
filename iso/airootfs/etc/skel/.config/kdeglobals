@@ -24,13 +24,13 @@ IntensityAmount=0
 IntensityEffect=0
 
 [Colors:Button]
-BackgroundAlternate=118,65,168
+BackgroundAlternate=143,96,174
 BackgroundNormal=49, 50, 68
-DecorationFocus=148,72,211
-DecorationHover=148,72,211
-ForegroundActive=148,72,211
+DecorationFocus=184,117,220
+DecorationHover=184,117,220
+ForegroundActive=184,117,220
 ForegroundInactive=166, 173, 200
-ForegroundLink=210,191,235
+ForegroundLink=223,201,238
 ForegroundNegative=243, 139, 168
 ForegroundNeutral=249, 226, 175
 ForegroundNormal=205, 214, 244
@@ -40,11 +40,11 @@ ForegroundVisited=203, 166, 247
 [Colors:Complementary]
 BackgroundAlternate=17, 17, 27
 BackgroundNormal=24, 24, 37
-DecorationFocus=148,72,211
-DecorationHover=148,72,211
-ForegroundActive=148,72,211
+DecorationFocus=184,117,220
+DecorationHover=184,117,220
+ForegroundActive=184,117,220
 ForegroundInactive=166, 173, 200
-ForegroundLink=210,191,235
+ForegroundLink=184,117,220
 ForegroundNegative=243, 139, 168
 ForegroundNeutral=249, 226, 175
 ForegroundNormal=205, 214, 244
@@ -54,11 +54,11 @@ ForegroundVisited=203, 166, 247
 [Colors:Header]
 BackgroundAlternate=17, 17, 27
 BackgroundNormal=24, 24, 37
-DecorationFocus=148,72,211
-DecorationHover=148,72,211
-ForegroundActive=148,72,211
+DecorationFocus=184,117,220
+DecorationHover=184,117,220
+ForegroundActive=184,117,220
 ForegroundInactive=166, 173, 200
-ForegroundLink=210,191,235
+ForegroundLink=184,117,220
 ForegroundNegative=243, 139, 168
 ForegroundNeutral=249, 226, 175
 ForegroundNormal=205, 214, 244
@@ -66,13 +66,13 @@ ForegroundPositive=166, 227, 161
 ForegroundVisited=203, 166, 247
 
 [Colors:Selection]
-BackgroundAlternate=112,59,161
-BackgroundNormal=112,59,161
-DecorationFocus=148,72,211
-DecorationHover=148,72,211
-ForegroundActive=148,72,211
+BackgroundAlternate=137,90,167
+BackgroundNormal=137,90,167
+DecorationFocus=184,117,220
+DecorationHover=184,117,220
+ForegroundActive=184,117,220
 ForegroundInactive=255,255,255
-ForegroundLink=210,191,235
+ForegroundLink=184,117,220
 ForegroundNegative=243, 139, 168
 ForegroundNeutral=249, 226, 175
 ForegroundNormal=255,255,255
@@ -82,11 +82,11 @@ ForegroundVisited=203, 166, 247
 [Colors:Tooltip]
 BackgroundAlternate=27,25,35
 BackgroundNormal=30, 30, 46
-DecorationFocus=148,72,211
-DecorationHover=148,72,211
-ForegroundActive=148,72,211
+DecorationFocus=184,117,220
+DecorationHover=184,117,220
+ForegroundActive=184,117,220
 ForegroundInactive=166, 173, 200
-ForegroundLink=210,191,235
+ForegroundLink=184,117,220
 ForegroundNegative=243, 139, 168
 ForegroundNeutral=249, 226, 175
 ForegroundNormal=205, 214, 244
@@ -96,11 +96,11 @@ ForegroundVisited=203, 166, 247
 [Colors:View]
 BackgroundAlternate=24, 24, 37
 BackgroundNormal=30, 30, 46
-DecorationFocus=148,72,211
-DecorationHover=148,72,211
-ForegroundActive=148,72,211
+DecorationFocus=184,117,220
+DecorationHover=184,117,220
+ForegroundActive=184,117,220
 ForegroundInactive=166, 173, 200
-ForegroundLink=210,191,235
+ForegroundLink=184,117,220
 ForegroundNegative=243, 139, 168
 ForegroundNeutral=249, 226, 175
 ForegroundNormal=205, 214, 244
@@ -110,11 +110,11 @@ ForegroundVisited=203, 166, 247
 [Colors:Window]
 BackgroundAlternate=17, 17, 27
 BackgroundNormal=24, 24, 37
-DecorationFocus=148,72,211
-DecorationHover=148,72,211
-ForegroundActive=148,72,211
+DecorationFocus=184,117,220
+DecorationHover=184,117,220
+ForegroundActive=184,117,220
 ForegroundInactive=166, 173, 200
-ForegroundLink=210,191,235
+ForegroundLink=184,117,220
 ForegroundNegative=243, 139, 168
 ForegroundNeutral=249, 226, 175
 ForegroundNormal=205, 214, 244
@@ -122,9 +122,10 @@ ForegroundPositive=166, 227, 161
 ForegroundVisited=203, 166, 247
 
 [General]
-AccentColor=148,72,211
+AccentColor=184,117,220
+BrowserApplication=brave-origin.desktop
 ColorSchemeHash=484b3330cbf6558056b50300caf14f234f0b04f0
-LastUsedCustomAccentColor=148,72,211
+LastUsedCustomAccentColor=184,117,220
 Name=Layan
 shadeSortColumn=true
 
@@ -133,7 +134,7 @@ Theme=Magna-Dark-Icons
 
 [KDE]
 ColorScheme=CatppuccinMochaLavender
-LookAndFeelPackage=com.github.vinceliuice.Layan
+LookAndFeelPackage=Catppuccin-Mocha-Lavender
 ShowDeleteCommand=true
 SingleClick=false
 contrast=4
