@@ -2,11 +2,11 @@
 # ZarchBlack Welcome Center - First-run welcome screen
 
 pkgname=zarchblack-welcome
-pkgver=1.0.0
+pkgver=2.0.0
 pkgrel=1
 pkgdesc="ZarchBlack Welcome Center - First-run welcome screen with installer and tool launcher"
 arch=('any')
-url="https://github.com/ZarchBlack/zarchblack-repo"
+url="https://zarchblack.pages.dev"
 license=('GPL3')
 depends=('python' 'python-pyqt6')
 install=zarchblack-welcome.install
@@ -33,8 +33,8 @@ BINEOF
   cat > "${pkgdir}/usr/lib/zarchblack-welcome/main.py" << 'PYEOF'
 #!/usr/bin/env python3
 """
-ZarchBlack Welcome Center
-© 2026 ZarchBlack Project — https://github.com/ZarchBlack
+ZarchBlack Welcome Center v2.0
+© 2026 ZarchBlack Project — https://zarchblack.pages.dev
 """
 
 import sys
@@ -43,10 +43,10 @@ from pathlib import Path
 
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
-    QPushButton, QLabel, QFrame, QScrollArea, QCheckBox,
+    QPushButton, QLabel, QFrame, QScrollArea, QCheckBox, QSizePolicy,
 )
-from PyQt6.QtCore import Qt, QThread, pyqtSignal
-from PyQt6.QtGui import QPixmap, QFont, QFontDatabase, QIcon
+from PyQt6.QtCore import Qt, QThread, pyqtSignal, QSize
+from PyQt6.QtGui import QPixmap, QFont, QFontDatabase, QIcon, QScreen
 
 BASE_DIR   = Path(__file__).resolve().parent
 ASSETS_DIR = BASE_DIR / "assets"
@@ -68,7 +68,7 @@ THEME = """
 QWidget {
     background-color: #0d0d14;
     color: #e2e8f0;
-    font-family: "Inter", "Segoe UI", "Ubuntu", sans-serif;
+    font-family: "Inter", "Noto Sans", "Ubuntu", sans-serif;
     font-size: 13px;
 }
 QMainWindow { background-color: #0d0d14; }
@@ -85,7 +85,8 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }
 #InstallBtn {
     background: qlineargradient(x1:0,y1:0,x2:1,y2:0,stop:0 #7c3aed,stop:1 #b060ff);
     color: #ffffff; border: none; border-radius: 12px;
-    font-size: 16px; font-weight: 700; padding: 14px 48px;
+    font-size: 15px; font-weight: 700; padding: 14px 0px;
+    min-width: 260px;
 }
 #InstallBtn:hover {
     background: qlineargradient(x1:0,y1:0,x2:1,y2:0,stop:0 #8b47f5,stop:1 #c070ff);
@@ -97,15 +98,22 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }
 #AppBtn {
     background-color: #12121e; color: #e2e8f0;
     border: 1.5px solid #2a2a45; border-radius: 14px;
-    font-size: 13px; font-weight: 600; padding: 18px 12px; text-align: center;
+    font-size: 13px; font-weight: 600; padding: 20px 12px; text-align: center;
 }
 #AppBtn:hover { background-color: #1a1a2e; border-color: #7c3aed; color: #b060ff; }
 #AppBtn:pressed { background-color: #16162a; border-color: #b060ff; }
 
+#WebsiteBtn {
+    background-color: #1a1040; color: #b060ff;
+    border: 1.5px solid #3a2070; border-radius: 10px;
+    font-size: 13px; font-weight: 600; padding: 10px 28px;
+}
+#WebsiteBtn:hover { background-color: #220f55; border-color: #7c3aed; }
+
 #SocialBtn {
     background-color: #12121e; color: #94a3b8;
     border: 1px solid #1a1a2e; border-radius: 10px;
-    font-size: 13px; padding: 10px 24px;
+    font-size: 13px; padding: 10px 28px;
 }
 #SocialBtn:hover { background-color: #1a1a2e; color: #b060ff; border-color: #2a2a45; }
 
@@ -143,27 +151,28 @@ class LaunchThread(QThread):
 class FeatureCard(QFrame):
     def __init__(self, icon, title, desc, parent=None):
         super().__init__(parent)
-        self.setFixedHeight(82)
+        self.setMinimumHeight(90)
+        self.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         self.setStyleSheet("""
-            QFrame { background:#12121e; border:1px solid #1a1a2e; border-radius:12px; }
-            QFrame:hover { border-color:#2a2a45; background:#16162a; }
+            QFrame { background:#12121e; border:1px solid #1a1a2e; border-radius:14px; }
+            QFrame:hover { border-color:#3a2a65; background:#16162a; }
         """)
         lay = QHBoxLayout(self)
-        lay.setContentsMargins(14, 10, 14, 10)
-        lay.setSpacing(12)
+        lay.setContentsMargins(16, 14, 16, 14)
+        lay.setSpacing(14)
 
         ic = QLabel(icon)
-        ic.setFont(QFont("Segoe UI Emoji", 20))
-        ic.setFixedWidth(32)
+        ic.setFont(QFont("Noto Color Emoji", 22))
+        ic.setFixedWidth(36)
         ic.setAlignment(Qt.AlignmentFlag.AlignCenter)
         lay.addWidget(ic)
 
-        vl = QVBoxLayout(); vl.setSpacing(2)
+        vl = QVBoxLayout(); vl.setSpacing(4)
         t = QLabel(title)
         t.setStyleSheet("color:#e2e8f0;font-weight:700;font-size:13px;background:transparent;border:none;")
         vl.addWidget(t)
         d = QLabel(desc)
-        d.setStyleSheet("color:#94a3b8;font-size:12px;background:transparent;border:none;")
+        d.setStyleSheet("color:#94a3b8;font-size:11px;background:transparent;border:none;")
         d.setWordWrap(True)
         vl.addWidget(d)
         lay.addLayout(vl)
@@ -173,11 +182,17 @@ class WelcomeWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Welcome to ZarchBlack")
-        self.setMinimumSize(860, 680)
-        self.resize(920, 720)
         self._threads = []
         if LOGO_PATH.exists():
             self.setWindowIcon(QIcon(str(LOGO_PATH)))
+
+        # Responsive sizing: 75% of screen, min 900x680, max 1200x900
+        screen = QApplication.primaryScreen().geometry()
+        w = max(900, min(1100, int(screen.width() * 0.72)))
+        h = max(700, min(900, int(screen.height() * 0.80)))
+        self.resize(w, h)
+        self.setMinimumSize(860, 660)
+
         self._build_ui()
         self._center()
 
@@ -185,7 +200,7 @@ class WelcomeWindow(QMainWindow):
         root = QWidget()
         self.setCentralWidget(root)
         outer = QVBoxLayout(root)
-        outer.setContentsMargins(0,0,0,0)
+        outer.setContentsMargins(0, 0, 0, 0)
         outer.setSpacing(0)
 
         scroll = QScrollArea()
@@ -195,91 +210,94 @@ class WelcomeWindow(QMainWindow):
 
         c = QWidget(); scroll.setWidget(c)
         ml = QVBoxLayout(c)
-        ml.setContentsMargins(48,36,48,32)
+        ml.setContentsMargins(52, 40, 52, 36)
         ml.setSpacing(0)
 
-        ml.addLayout(self._header());      ml.addSpacing(26)
-        ml.addWidget(self._divider());     ml.addSpacing(22)
-        ml.addWidget(self._welcome());     ml.addSpacing(26)
-        ml.addWidget(self._sec("✨   Features")); ml.addSpacing(10)
-        ml.addLayout(self._features());    ml.addSpacing(30)
-        ml.addWidget(self._divider());     ml.addSpacing(22)
-        ml.addWidget(self._install());     ml.addSpacing(30)
-        ml.addWidget(self._sec("🛠   ZarchBlack Tools")); ml.addSpacing(10)
-        ml.addLayout(self._apps());        ml.addSpacing(30)
-        ml.addWidget(self._divider());     ml.addSpacing(18)
-        ml.addWidget(self._sec("🌐   Community & Links")); ml.addSpacing(10)
-        ml.addLayout(self._social());      ml.addSpacing(28)
+        ml.addLayout(self._header());           ml.addSpacing(28)
+        ml.addWidget(self._divider());          ml.addSpacing(24)
+        ml.addWidget(self._welcome_text());     ml.addSpacing(28)
+        ml.addWidget(self._sec("✨  Features")); ml.addSpacing(12)
+        ml.addLayout(self._features());         ml.addSpacing(32)
+        ml.addWidget(self._divider());          ml.addSpacing(24)
+        ml.addWidget(self._install_section());  ml.addSpacing(32)
+        ml.addWidget(self._sec("🛠  ZarchBlack Tools")); ml.addSpacing(12)
+        ml.addLayout(self._apps());             ml.addSpacing(32)
+        ml.addWidget(self._divider());          ml.addSpacing(20)
+        ml.addWidget(self._sec("🌐  Community & Links")); ml.addSpacing(12)
+        ml.addLayout(self._social());           ml.addSpacing(30)
         ml.addStretch()
         ml.addLayout(self._bottom())
 
     def _header(self):
-        lay = QHBoxLayout(); lay.setSpacing(18)
+        lay = QHBoxLayout(); lay.setSpacing(20)
         lbl = QLabel()
         if LOGO_PATH.exists():
             px = QPixmap(str(LOGO_PATH)).scaled(
-                86,86, Qt.AspectRatioMode.KeepAspectRatio,
+                96, 96, Qt.AspectRatioMode.KeepAspectRatio,
                 Qt.TransformationMode.SmoothTransformation)
             lbl.setPixmap(px)
-        lbl.setFixedSize(86,86)
+        lbl.setFixedSize(96, 96)
         lay.addWidget(lbl, alignment=Qt.AlignmentFlag.AlignVCenter)
 
-        vl = QVBoxLayout(); vl.setSpacing(5)
+        vl = QVBoxLayout(); vl.setSpacing(6)
         t = QLabel("ZarchBlack")
-        t.setStyleSheet("font-size:42px;font-weight:800;color:#b060ff;background:transparent;letter-spacing:1px;")
+        t.setStyleSheet("font-size:44px;font-weight:800;color:#b060ff;background:transparent;letter-spacing:1px;")
         vl.addWidget(t)
         s = QLabel("A modern Arch Linux-based distribution for professionals")
         s.setStyleSheet("font-size:13px;color:#94a3b8;background:transparent;")
         vl.addWidget(s)
-        v = QLabel("Version 1.0.0  •  Developed by Zero7x")
+        v = QLabel("Version 2026.07.07  •  Kernel: linux-zen  •  KDE Plasma 6 on Wayland  •  Developed by Zero7x")
         v.setStyleSheet("font-size:11px;color:#475569;background:transparent;")
         vl.addWidget(v)
         lay.addLayout(vl); lay.addStretch()
         return lay
 
-    def _welcome(self):
+    def _welcome_text(self):
         lbl = QLabel(
             "Welcome to <span style='color:#b060ff;font-weight:700;'>ZarchBlack Linux</span>!<br><br>"
-            "ZarchBlack is a modern distribution built on <b>Arch Linux</b>, designed for "
-            "developers, cybersecurity professionals, ethical hackers, and system administrators.<br><br>"
-            "It combines the power of Arch Linux with a beautiful <b>KDE Plasma</b> desktop, "
-            "pre-configured with a full suite of tools ready out of the box."
+            "ZarchBlack is a <b>rolling-release</b> distribution built on <b>Arch Linux</b>, "
+            "designed for developers, cybersecurity professionals, ethical hackers, and "
+            "system administrators.<br><br>"
+            "It ships with <b>KDE Plasma 6</b> on <b>Wayland</b>, pre-configured with the "
+            "<b>Catppuccin Mocha Lavender</b> theme, <b>linux-zen</b> kernel for maximum "
+            "performance, and a full suite of security and development tools ready out of the box."
         )
         lbl.setWordWrap(True)
         lbl.setTextFormat(Qt.TextFormat.RichText)
         lbl.setStyleSheet(
             "font-size:13px;color:#cbd5e1;background-color:#12121e;"
-            "border:1px solid #1a1a2e;border-radius:12px;padding:18px 22px;"
+            "border:1px solid #1a1a2e;border-radius:14px;padding:20px 26px;"
         )
         return lbl
 
     def _features(self):
         items = [
-            ("🖥","KDE Plasma Desktop","Modern ZarchBlack-themed desktop"),
-            ("🔒","Cybersecurity Tools","BlackArch tools integrated and ready"),
-            ("⚡","High Performance","Optimized kernel for responsiveness"),
-            ("📦","Package Management","Pacman + AUR + Chaotic-AUR + Flatpak"),
-            ("🎨","Full Customization","Darkly / Kvantum / Catppuccin Mocha"),
-            ("🔧","Developer Ready","Pre-installed dev tools and environments"),
+            ("🖥", "KDE Plasma 6",       "Wayland-native with Catppuccin Mocha Lavender theme"),
+            ("🔒", "Cybersecurity Suite", "BlackArch repo + zarch-hacking + firejail + firewalld"),
+            ("⚡", "linux-zen Kernel",    "Optimized for responsiveness and low latency"),
+            ("📦", "Smart Packaging",     "Pacman + Chaotic-AUR + Flatpak + zpackagemanager"),
+            ("🎨", "Full Customization",  "Darkly / Kvantum / Layan Decorations / Custom Icons"),
+            ("🌐", "Wayland Native",      "Default Wayland session with full app compatibility"),
         ]
-        gl = QVBoxLayout(); gl.setSpacing(8)
-        r1 = QHBoxLayout(); r1.setSpacing(8)
-        r2 = QHBoxLayout(); r2.setSpacing(8)
-        for i,(ic,t,d) in enumerate(items):
-            (r1 if i<3 else r2).addWidget(FeatureCard(ic,t,d))
+        gl = QVBoxLayout(); gl.setSpacing(10)
+        r1 = QHBoxLayout(); r1.setSpacing(10)
+        r2 = QHBoxLayout(); r2.setSpacing(10)
+        for i, (ic, t, d) in enumerate(items):
+            (r1 if i < 3 else r2).addWidget(FeatureCard(ic, t, d))
         gl.addLayout(r1); gl.addLayout(r2)
         return gl
 
-    def _install(self):
+    def _install_section(self):
         f = QFrame()
         f.setStyleSheet("""
-            QFrame { background:qlineargradient(x1:0,y1:0,x2:1,y2:1,stop:0 #0f0f1a,stop:1 #14102a);
-                     border:1px solid #2a2a45; border-radius:16px; }
+            QFrame { background:qlineargradient(x1:0,y1:0,x2:1,y2:1,
+                         stop:0 #0f0f1e, stop:0.5 #13102e, stop:1 #0f0f1e);
+                     border:1px solid #2a2a55; border-radius:18px; }
         """)
-        lay = QVBoxLayout(f); lay.setContentsMargins(32,22,32,22); lay.setSpacing(10)
+        lay = QVBoxLayout(f); lay.setContentsMargins(36, 26, 36, 26); lay.setSpacing(12)
 
-        t = QLabel("🚀   Install ZarchBlack")
-        t.setStyleSheet("font-size:17px;font-weight:700;color:#e2e8f0;background:transparent;")
+        t = QLabel("🚀  Install ZarchBlack")
+        t.setStyleSheet("font-size:18px;font-weight:700;color:#e2e8f0;background:transparent;")
         t.setAlignment(Qt.AlignmentFlag.AlignCenter)
         lay.addWidget(t)
 
@@ -288,12 +306,13 @@ class WelcomeWindow(QMainWindow):
         d.setAlignment(Qt.AlignmentFlag.AlignCenter)
         d.setStyleSheet("font-size:13px;color:#94a3b8;background:transparent;")
         lay.addWidget(d)
-        lay.addSpacing(6)
+        lay.addSpacing(8)
 
         row = QHBoxLayout(); row.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        btn = QPushButton("   Install ZarchBlack   ")
+        btn = QPushButton("  🖥  Install ZarchBlack")
         btn.setObjectName("InstallBtn")
-        btn.setFixedHeight(52)
+        btn.setFixedHeight(54)
+        btn.setMinimumWidth(280)
         btn.setCursor(Qt.CursorShape.PointingHandCursor)
         btn.clicked.connect(self._calamares)
         row.addWidget(btn)
@@ -302,32 +321,37 @@ class WelcomeWindow(QMainWindow):
 
     def _apps(self):
         items = [
-            ("📦","ZPackageManager","GUI package management\nfor Arch Linux",        "zpackagemanager"),
-            ("🔓","Zarch-Hacking",  "BlackArch tools manager\nfor penetration testing","zarch-hacking"),
-            ("🛡","ZArchGuard",     "System protection\nand security monitoring",      "zarchguard"),
+            ("📦", "ZPackageManager",  "GUI package management\nfor Arch Linux",           "zpackagemanager"),
+            ("🔓", "Zarch-Hacking",    "BlackArch tools manager\nfor penetration testing",  "zarch-hacking"),
+            ("🛡", "ZArchGuard",       "System protection\nand security monitoring",        "zarchguard"),
+            ("💻", "OpenCode Desktop", "AI-powered development\nenvironment",               "opencode-desktop"),
         ]
         lay = QHBoxLayout(); lay.setSpacing(12)
-        for ic,nm,ds,cmd in items:
+        for ic, nm, ds, cmd in items:
             b = QPushButton(f"{ic}\n{nm}\n{ds}")
-            b.setObjectName("AppBtn"); b.setFixedHeight(108)
+            b.setObjectName("AppBtn"); b.setMinimumHeight(110)
+            b.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
             b.setCursor(Qt.CursorShape.PointingHandCursor)
-            b.clicked.connect(lambda _,c=cmd: self._launch(c))
+            b.clicked.connect(lambda _, c=cmd: self._launch(c))
             lay.addWidget(b)
         return lay
 
     def _social(self):
         links = [
-            ("  GitHub",   "https://github.com/ZarchBlack/ZARCH"),
-            ("  Discord",  "https://discord.gg/YgVtrsCx"),
-            ("  Telegram", "https://t.me/zarchblack"),
+            ("🌐  Website",  "https://zarchblack.pages.dev/"),
+            ("  GitHub",    "https://github.com/ZarchBlack/zarchblack-repo"),
+            ("  Telegram",  "https://t.me/zarchblack"),
         ]
-        lay = QHBoxLayout(); lay.setSpacing(10)
+        lay = QHBoxLayout(); lay.setSpacing(12)
         lay.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        for lbl,url in links:
-            b = QPushButton(lbl); b.setObjectName("SocialBtn")
-            b.setFixedHeight(40); b.setCursor(Qt.CursorShape.PointingHandCursor)
-            b.clicked.connect(lambda _,u=url: subprocess.Popen(["xdg-open",u],
-                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL))
+        for i, (label, url) in enumerate(links):
+            b = QPushButton(label)
+            b.setObjectName("WebsiteBtn" if i == 0 else "SocialBtn")
+            b.setFixedHeight(44)
+            b.setMinimumWidth(140)
+            b.setCursor(Qt.CursorShape.PointingHandCursor)
+            b.clicked.connect(lambda _, u=url: subprocess.Popen(
+                ["xdg-open", u], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL))
             lay.addWidget(b)
         return lay
 
@@ -338,7 +362,7 @@ class WelcomeWindow(QMainWindow):
         self.cb.stateChanged.connect(self._toggle_autostart)
         lay.addWidget(self.cb); lay.addStretch()
         cb = QPushButton("Close"); cb.setObjectName("CloseBtn")
-        cb.setFixedSize(100,36); cb.setCursor(Qt.CursorShape.PointingHandCursor)
+        cb.setFixedSize(100, 36); cb.setCursor(Qt.CursorShape.PointingHandCursor)
         cb.clicked.connect(self.close); lay.addWidget(cb)
         return lay
 
@@ -353,7 +377,7 @@ class WelcomeWindow(QMainWindow):
 
     def _center(self):
         g = QApplication.primaryScreen().geometry()
-        self.move((g.width()-self.width())//2, (g.height()-self.height())//2)
+        self.move((g.width() - self.width()) // 2, (g.height() - self.height()) // 2)
 
     def _calamares(self):
         t = LaunchThread("pkexec calamares 2>/dev/null || sudo calamares 2>/dev/null || calamares")
