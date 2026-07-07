@@ -1,0 +1,29 @@
+name: 🔍 ShellCheck
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.sh'
+      - 'iso/airootfs/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**.sh'
+      - 'iso/airootfs/**'
+
+jobs:
+  shellcheck:
+    name: Lint Shell Scripts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: '.'
+          severity: warning
+          ignore_paths: >-
+            .git
+            hf_venv

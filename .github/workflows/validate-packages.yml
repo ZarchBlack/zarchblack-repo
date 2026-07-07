@@ -1,0 +1,52 @@
+name: ✅ Validate Package List
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'iso/packages.x86_64'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'iso/packages.x86_64'
+
+jobs:
+  validate:
+    name: Check packages.x86_64
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for duplicate packages
+        run: |
+          echo "=== Checking for duplicate entries in packages.x86_64 ==="
+          PACKAGES_FILE="iso/packages.x86_64"
+
+          # Extract package names (skip comments and empty lines)
+          PKGS=$(grep -v '^\s*#' "$PACKAGES_FILE" | grep -v '^\s*$' | sort)
+
+          # Find duplicates
+          DUPES=$(echo "$PKGS" | uniq -d)
+
+          if [ -n "$DUPES" ]; then
+            echo "❌ ERROR: Duplicate packages found:"
+            echo "$DUPES"
+            exit 1
+          else
+            echo "✅ No duplicate packages found."
+          fi
+
+      - name: Count total packages
+        run: |
+          TOTAL=$(grep -v '^\s*#' iso/packages.x86_64 | grep -v '^\s*$' | wc -l)
+          echo "📦 Total packages in list: $TOTAL"
+
+      - name: Check for empty lines at end of file
+        run: |
+          echo "=== Checking file formatting ==="
+          LAST=$(tail -c 1 iso/packages.x86_64 | wc -l)
+          if [ "$LAST" -eq 0 ]; then
+            echo "⚠️  Warning: File does not end with a newline."
+          else
+            echo "✅ File ends correctly with a newline."
+          fi

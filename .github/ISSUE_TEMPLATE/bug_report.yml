@@ -1,0 +1,52 @@
+name: 🐛 Bug Report
+description: Report an issue with ZarchBlack OS
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "## ZarchBlack Bug Report\nPlease provide as much detail as possible to help us reproduce and fix the bug."
+  - type: input
+    id: iso-version
+    attributes:
+      label: ISO Version
+      description: "Which version of the ISO are you using?"
+      placeholder: "e.g., ZarchBlack-2026.07.07-x86_64.iso"
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: "Where did this bug occur?"
+      options:
+        - Physical Hardware
+        - VirtualBox
+        - QEMU/KVM
+        - VMware
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the Bug
+      description: "A clear and concise description of what the bug is."
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: "Steps to reproduce the behavior:"
+      value: |
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Logs
+      description: "Please copy and paste any relevant logs here."
+      render: shell
