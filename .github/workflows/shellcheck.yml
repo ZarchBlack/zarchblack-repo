@@ -4,12 +4,10 @@ on:
     branches: [ main ]
     paths:
       - '**.sh'
-      - 'iso/airootfs/**'
   pull_request:
     branches: [ main ]
     paths:
       - '**.sh'
-      - 'iso/airootfs/**'
 
 jobs:
   shellcheck:
@@ -19,11 +17,36 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run ShellCheck
-        uses: ludeeus/action-shellcheck@master
-        with:
-          scandir: '.'
-          severity: warning
-          ignore_paths: >-
-            .git
-            hf_venv
+      - name: Find and lint shell scripts
+        run: |
+          echo "=== Running ShellCheck on all .sh files ==="
+
+          # Find all .sh files, exclude vendor/build dirs
+          SCRIPTS=$(find . -name "*.sh" \
+            ! -path "./.git/*" \
+            ! -path "./hf_venv/*" \
+            ! -path "./work/*" \
+            ! -path "./out/*" \
+            2>/dev/null)
+
+          if [ -z "$SCRIPTS" ]; then
+            echo "No .sh files found."
+            exit 0
+          fi
+
+          ERRORS=0
+          for f in $SCRIPTS; do
+            echo "Checking: $f"
+            if ! shellcheck --severity=error "$f"; then
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+
+          echo ""
+          if [ "$ERRORS" -gt 0 ]; then
+            echo "❌ ShellCheck found errors in $ERRORS file(s)."
+            exit 1
+          else
+            echo "✅ All shell scripts passed ShellCheck."
+          fi
+

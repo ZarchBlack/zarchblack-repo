@@ -1,5 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: ZarchBlack GitHub
-    url: https://github.com/ZarchBlack
-    about: Private project repository
+  - name: 🌐 Official Website
+    url: https://zarchblack.pages.dev/
+    about: Visit the official ZarchBlack website for news and announcements
+  - name: 📥 Download ISO
+    url: https://huggingface.co/datasets/zarchblack/zarchblack-releases/tree/main
+    about: Download the latest ZarchBlack ISO from HuggingFace
+  - name: 🔒 Security Vulnerability
+    url: https://github.com/ZarchBlack/zarchblack-repo/security/advisories/new
+    about: Report security vulnerabilities privately (do NOT use public issues)
