@@ -20,18 +20,21 @@ jobs:
 
       - name: Find and lint shell scripts
         run: |
-          echo "=== Running ShellCheck on all .sh files ==="
+          echo "=== Running ShellCheck on ZarchBlack .sh files ==="
 
-          # Find all .sh files, exclude vendor/build dirs
+          # Find all .sh files, exclude: git, venv, build artifacts, third-party scripts
           SCRIPTS=$(find . -name "*.sh" \
             ! -path "./.git/*" \
             ! -path "./hf_venv/*" \
             ! -path "./work/*" \
             ! -path "./out/*" \
+            ! -path "*/Tela-circle-icon-theme*" \
+            ! -path "*/linutil*" \
+            ! -path "*/common-script.sh" \
             2>/dev/null)
 
           if [ -z "$SCRIPTS" ]; then
-            echo "No .sh files found."
+            echo "No .sh files found to check."
             exit 0
           fi
 
@@ -50,4 +53,5 @@ jobs:
           else
             echo "✅ All shell scripts passed ShellCheck."
           fi
+
 
