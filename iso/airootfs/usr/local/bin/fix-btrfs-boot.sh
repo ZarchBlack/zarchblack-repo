@@ -10,11 +10,11 @@ chattr +C /boot 2>/dev/null || true
 # and GRUB's BTRFS driver fails to read sparse kernel files.
 KVER=$(ls /usr/lib/modules/ | head -n 1)
 if [ -f "/usr/lib/modules/$KVER/vmlinuz" ]; then
-    rm -f /boot/vmlinuz-linux
-    touch /boot/vmlinuz-linux
-    chattr +C /boot/vmlinuz-linux 2>/dev/null || true
-    cat "/usr/lib/modules/$KVER/vmlinuz" > /boot/vmlinuz-linux
-    chmod 644 /boot/vmlinuz-linux
+    rm -f /boot/vmlinuz-linux-zen
+    touch /boot/vmlinuz-linux-zen
+    chattr +C /boot/vmlinuz-linux-zen 2>/dev/null || true
+    cat "/usr/lib/modules/$KVER/vmlinuz" > /boot/vmlinuz-linux-zen
+    chmod 644 /boot/vmlinuz-linux-zen
 fi
 
 # Recreate any microcode files so they are not sparse/compressed
