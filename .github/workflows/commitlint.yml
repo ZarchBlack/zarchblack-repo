@@ -1,0 +1,50 @@
+name: 📝 Lint Commits
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  commitlint:
+    name: Check Conventional Commits
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check commit messages
+        run: |
+          echo "=== Validating commit messages ==="
+
+          # Get all commits in this PR (from base to head)
+          COMMITS=$(git log origin/main..HEAD --pretty=format:"%s" 2>/dev/null || git log --pretty=format:"%s" -5)
+
+          VALID_TYPES="feat|fix|docs|style|refactor|remove|chore|ci|revert"
+          ERRORS=0
+
+          while IFS= read -r msg; do
+            # Skip merge commits
+            if echo "$msg" | grep -qE "^Merge"; then
+              continue
+            fi
+
+            # Check format: type(scope): description  OR  type: description
+            if echo "$msg" | grep -qE "^($VALID_TYPES)(\([a-z0-9_-]+\))?: .+"; then
+              echo "✅ $msg"
+            else
+              echo "❌ Invalid commit: $msg"
+              echo "   Expected format: type(scope): description"
+              echo "   Valid types: feat, fix, docs, style, refactor, remove, chore, ci, revert"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done <<< "$COMMITS"
+
+          if [ "$ERRORS" -gt 0 ]; then
+            echo ""
+            echo "❌ $ERRORS commit(s) do not follow Conventional Commits."
+            echo "📖 See: https://www.conventionalcommits.org/"
+            exit 1
+          else
+            echo ""
+            echo "✅ All commits follow Conventional Commits format."
+          fi

@@ -1,0 +1,87 @@
+name: 🏗️ Build ISO
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Release tag (e.g. v2026.07.07). Leave empty to skip release.'
+        required: false
+        default: ''
+  schedule:
+    # Every Monday at 02:00 UTC — weekly fresh build
+    - cron: '0 2 * * 1'
+
+jobs:
+  build:
+    name: Build ZarchBlack ISO
+    # IMPORTANT: This workflow requires a self-hosted Arch Linux runner.
+    # Setup instructions:
+    #   1. On your Arch Linux machine, install: sudo pacman -S github-actions-runner
+    #   2. Register: cd ~/actions-runner && ./config.sh --url https://github.com/ZarchBlack/zarchblack-repo --token <TOKEN>
+    #   3. Start: sudo ./svc.sh install && sudo ./svc.sh start
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          clean: true
+
+      - name: Install build dependencies
+        run: |
+          sudo pacman -Sy --noconfirm archiso
+
+      - name: Clean previous build artifacts
+        run: |
+          sudo rm -rf zarchblack_iso/out/* zarchblack_iso/work/
+
+      - name: Build ISO
+        run: |
+          cd zarchblack_iso
+          sudo ./scripts/build-iso.sh clean
+        timeout-minutes: 120
+
+      - name: Calculate SHA256 checksum
+        id: checksum
+        run: |
+          ISO_FILE=$(ls zarchblack_iso/out/*.iso | head -1)
+          SHA256=$(sha256sum "$ISO_FILE" | awk '{print $1}')
+          ISO_NAME=$(basename "$ISO_FILE")
+          echo "iso_path=$ISO_FILE" >> "$GITHUB_OUTPUT"
+          echo "iso_name=$ISO_NAME" >> "$GITHUB_OUTPUT"
+          echo "sha256=$SHA256" >> "$GITHUB_OUTPUT"
+          echo "$SHA256  $ISO_NAME" > "zarchblack_iso/out/${ISO_NAME}.sha256"
+          echo "✅ ISO: $ISO_NAME"
+          echo "✅ SHA256: $SHA256"
+
+      - name: Create GitHub Release (if tag provided)
+        if: ${{ github.event.inputs.release_tag != '' }}
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.release_tag }}
+          name: "ZarchBlack Linux — ${{ github.event.inputs.release_tag }}"
+          body: |
+            ## 🚀 ZarchBlack Linux — ${{ github.event.inputs.release_tag }}
+
+            ### 📥 Download
+            | File | SHA256 |
+            |---|---|
+            | [ISO — HuggingFace](https://huggingface.co/datasets/zarchblack/zarchblack-releases/tree/main) | `${{ steps.checksum.outputs.sha256 }}` |
+
+            ### 🖥️ System
+            - Kernel: `linux-zen`
+            - Desktop: KDE Plasma 6 on Wayland
+            - Base: Arch Linux (Rolling Release)
+
+            > See [CHANGELOG.md](https://github.com/ZarchBlack/zarchblack-repo/blob/main/CHANGELOG.md) for full list of changes.
+          files: |
+            ${{ steps.checksum.outputs.iso_path }}.sha256
+          draft: true
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build complete notification
+        run: |
+          echo "🎉 Build completed successfully!"
+          echo "ISO: ${{ steps.checksum.outputs.iso_name }}"
+          echo "SHA256: ${{ steps.checksum.outputs.sha256 }}"
