@@ -1,0 +1,12 @@
+# Package files — uploaded as GitHub Release assets
+x86_64/*.pkg.tar.zst
+x86_64/*.pkg.tar.zst.sig
+x86_64/*.pkg.tar.xz
+x86_64/*.pkg.tar.xz.sig
+# Security: Never commit keys or signatures
+*.key
+*.gpg
+*.asc
+*.pem
+*.sig
+*signing*
